@@ -1,0 +1,28 @@
+apiVersion: 1
+
+deleteDatasources:
+  - name: MYINFLUX
+    orgId: 1
+
+datasources:
+- name: InfluxDB-Telegraf
+  type: influxdb
+  access: proxy
+  url: http://influxdb:8086
+  password: ravFE#DC234#!
+  user: telegraf
+  database: telegraf
+  basicAuth: false
+  basicAuthUser:
+  basicAuthPassword:
+  withCredentials:
+  isDefault: true
+  jsonData:
+     tlsAuth: false
+     tlsAuthWithCACert: false
+  secureJsonData:
+    tlsCACert: ""
+    tlsClientCert: ""
+    tlsClientKey: ""
+  version: 1
+  editable: true

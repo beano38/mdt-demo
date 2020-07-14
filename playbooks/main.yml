@@ -1,0 +1,58 @@
+---
+- hosts: docker
+  vars:
+    - docker_users:
+      - vagrant
+
+  pre_tasks:
+    - name: Set permenant environment variables
+      become: true
+      lineinfile:
+        dest: /etc/environment
+        regexp: "{{item.regexp}}"
+        line: "{{item.line}}"
+      with_items:
+        - { regexp: '^PUID=', line: 'PUID=1000' }
+        - { regexp: '^PGID=', line: 'PGID=998' }
+        - { regexp: '^DOCKERDIR=', line: 'DOCKERDIR="{{ ansible_env.HOME }}/docker"' }
+        - { regexp: '^TZ=', line: 'TZ="America/New York"' }
+
+    - name: Update package cache and install APT packages
+      become: true
+      apt:
+        name: [ python3-pip ]
+        state: present
+        update_cache: true
+        cache_valid_time: 3600
+
+    - name: Install pip packages
+      pip:
+        name: [ docker-compose, docker ]
+        executable: pip3
+        state: present
+
+  tasks:
+    - block:
+      - name: Bring up docker
+        include_role:
+          name: geerlingguy.docker
+      become: true
+    
+    - name: Copy docker directory to remote server
+      copy:
+        src: ../files/docker
+        dest: "{{ ansible_env.HOME }}"
+
+    - name: Start containers
+      command: docker-compose up -d
+      args:
+        chdir: "{{ ansible_env.HOME }}/docker"
+
+    # - name: Start containers using the docker-compose file
+    #   docker_compose:
+    #     project_src: "{{ ansible_env.HOME }}/docker"
+    #   register: output
+
+    # - debug:
+    #     var:
+    #       output

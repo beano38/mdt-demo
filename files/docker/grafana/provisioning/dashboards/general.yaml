@@ -1,0 +1,15 @@
+
+# # config file version
+apiVersion: 1
+
+providers:
+ - name: 'Server'
+   orgId: 1
+   folder: 'Server'
+   type: file
+   editable: true
+   disableDeletion: false
+   options:
+     datasource: InfluxDB-Telegraf
+#     prefix: InfluxDB
+     path: /etc/grafana/provisioning/dashboards/general
