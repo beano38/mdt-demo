@@ -10,4 +10,4 @@ Installs Docker, Docker-compose and in containers grafana, influxdb and telegraf
 3. Run Playbook
 `ansible-playbook -i inventory.ini playbooks.main.yml`
 
-Alternatively, you may install docker and docker-compsose yourself and just run the docker-compose file.  '~/docker/docker-compose up -d'
+Alternatively, you may install docker and docker-compsose yourself and just run the docker-compose file.  `~/docker/docker-compose up -d`
