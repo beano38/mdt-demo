@@ -5,6 +5,7 @@
 Installs Docker, Docker-compose and in containers grafana, influxdb and telegraf with initial configurations
 
 1. [Install Ansible](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html)
+    Make sure ansible can be run as the local user (not as root/sudo)
 2. clone this repo - `git clone https://github.com/beano38/mdt-demo.git`
 3. get into repo directory - `cd mdt-demo`
 4. Install Requirements `ansible-galaxy install -r requirements.yml`
