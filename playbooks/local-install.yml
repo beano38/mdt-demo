@@ -1,0 +1,53 @@
+---
+- hosts: docker
+  vars:
+    - docker_users:
+      - "{{ ansible_env.USER }}"
+
+  pre_tasks:
+    - name: Set permenant environment variables
+      become: true
+      lineinfile:
+        dest: /etc/environment
+        regexp: "{{item.regexp}}"
+        line: "{{item.line}}"
+      with_items:
+        - { regexp: '^PUID=', line: 'PUID={{ ansible_env.USER }}' }
+        - { regexp: '^PGID=', line: 'PGID=998' }
+        - { regexp: '^DOCKERDIR=', line: 'DOCKERDIR="{{ ansible_env.HOME }}/docker"' }
+        - { regexp: '^TZ=', line: 'TZ="America/New York"' }
+
+    - name: Update package cache and install APT packages
+      become: true
+      apt:
+        name: [ python3-pip ]
+        state: present
+        update_cache: true
+        cache_valid_time: 3600
+
+    - name: Install pip packages
+      pip:
+        name: [ docker-compose, docker ]
+        executable: pip3
+        state: present
+
+  tasks:
+    - block:
+      - name: Bring up docker
+        include_role:
+          name: geerlingguy.docker
+      become: true
+    
+    - name: Copy docker directory to remote server
+      copy:
+        src: ../files/docker
+        dest: "{{ ansible_env.HOME }}"
+
+    - name: Start containers
+      command: docker-compose up -d
+      args:
+        chdir: "{{ ansible_env.HOME }}/docker"
+
+    - debug:
+        msg: Log out of server and back in again then run 'docker-compose -f {{ ansible_env.HOME/docker/docker-compose.yml }} up -d'
+

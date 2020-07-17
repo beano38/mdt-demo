@@ -35,6 +35,8 @@ services:
     image: telegraf
     container_name: telegraf
     hostname: ubuntu_host
+    ports:
+      - 57000:57000
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - ${DOCKERDIR}/telegraf/telegraf.conf:/etc/telegraf/telegraf.conf:ro
