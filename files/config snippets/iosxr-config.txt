@@ -1,0 +1,66 @@
+Make sure to modify the address family IP address and port. This will work thru a VRF, 
+
+
+***************************** Config *****************************
+
+telemetry model-driven
+ destination-group MDT
+  address-family ipv4 10.254.0.88 port 5432
+   encoding self-describing-gpb
+   protocol tcp
+  !
+ !
+ sensor-group HEALTH
+  sensor-path Cisco-IOS-XR-shellutil-oper:system-time/uptime
+  sensor-path Cisco-IOS-XR-wdsysmon-fd-oper:system-monitoring/cpu-utilization
+  sensor-path Cisco-IOS-XR-nto-misc-oper:memory-summary/nodes/node/summary
+ !
+ sensor-group OPTICS
+  sensor-path Cisco-IOS-XR-controller-optics-oper:optics-oper/optics-ports/optics-port/optics-info
+ !
+ sensor-group MPLS-TE
+  sensor-path Cisco-IOS-XR-mpls-te-oper:mpls-te/tunnels/summary
+  sensor-path Cisco-IOS-XR-ip-rsvp-oper:rsvp/interface-briefs/interface-brief
+  sensor-path Cisco-IOS-XR-ip-rsvp-oper:rsvp/counters/interface-messages/interface-message
+ !
+ sensor-group ROUTING
+  sensor-path Cisco-IOS-XR-clns-isis-oper:isis/instances/instance/statistics-global
+  sensor-path Cisco-IOS-XR-clns-isis-oper:isis/instances/instance/levels/level/adjacencies/adjacency
+  sensor-path Cisco-IOS-XR-ipv4-bgp-oper:bgp/instances/instance/instance-active/default-vrf/process-info
+  sensor-path Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/isis/as/information
+ !
+ sensor-group INTERFACES
+  sensor-path Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/interface-summary
+  sensor-path Cisco-IOS-XR-infra-statsd-oper:infra-statistics/interfaces/interface/latest/generic-counters
+ !
+ subscription HEALTH
+  sensor-group-id HEALTH strict-timer
+  sensor-group-id HEALTH sample-interval 30000
+  destination-id MDT
+  source-interface Loopback0
+ !
+ subscription OPTICS
+  sensor-group-id OPTICS strict-timer
+  sensor-group-id OPTICS sample-interval 30000
+  destination-id MDT
+  source-interface Loopback0
+ !
+ subscription MPLS-TE
+  sensor-group-id MPLS-TE strict-timer
+  sensor-group-id MPLS-TE sample-interval 30000
+  destination-id MDT
+  source-interface Loopback0
+ !
+ subscription ROUTING
+  sensor-group-id ROUTING strict-timer
+  sensor-group-id ROUTING sample-interval 30000
+  destination-id MDT
+  source-interface Loopback0
+ !
+ subscription INTERFACES
+  sensor-group-id INTERFACES strict-timer
+  sensor-group-id INTERFACES sample-interval 30000
+  destination-id MDT
+  source-interface Loopback0
+ !
+!
