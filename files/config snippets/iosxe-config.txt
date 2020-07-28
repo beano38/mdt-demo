@@ -6,14 +6,16 @@ Make sure to modify the receiver IP address and port.
 telemetry ietf subscription 100
  encoding encode-kvgpb
  filter xpath /interfaces-ios-xe-oper:interfaces/interface/statistics
- source-address 10.55.255.9
+ source-vrf Mgmt-intf
  stream yang-push
  update-policy periodic 3000
- receiver ip address 10.254.0.88 5432 protocol grpc-tcp
+ receiver ip address 10.89.188.28 57000 protocol grpc-tcp
  
  
 
  ***************************** Show Commands *****************************
+ 
+ show platform software yang-management process 
  
  show telemetry ietf subscription 100 receiver
  show telemetry ietf subscription configured detail
