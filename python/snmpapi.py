@@ -28,4 +28,4 @@ def cm_api(host):
 
 
 # if __name__ == "__main___":
-app.run(port=9998, debug=True)
+app.run(host="0.0.0.0", port=9998, debug=True)
