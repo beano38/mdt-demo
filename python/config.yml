@@ -2,7 +2,7 @@
 
 # InfluxDB configuration
 influxdb:
-  host: influxdb
+  host: 10.89.188.28
   port: 8086
   snmp_db: snmp
   create_db: True

@@ -67,6 +67,8 @@ def gather_data(host, device_type):
             snmp_get(host, config["cm"]["community_string"], config["cm"]["port"], oid, device_type)
 
     if output:
+        import json
+        print(json.dumps(output, indent=2))
         create_measurement(db_name=config["influxdb"]["snmp_db"], measurement=output)
 
     return output
