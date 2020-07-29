@@ -11,8 +11,8 @@ def index():
 
 @app.route('/api/cmts/<string:host>', methods=['GET'])
 def cmts_api(host):
-    output = gather_data(host, device_type="cmts")
-    if output:
+    result = gather_data(host, device_type="cmts")
+    if result:
         return "cmts worked"
     else:
         return "check log - 'docker logs snmp-poller -f'"
@@ -20,8 +20,8 @@ def cmts_api(host):
 
 @app.route('/api/cm/<string:host>', methods=['GET'])
 def cm_api(host):
-    output = gather_data(host, device_type="cm")
-    if output:
+    result = gather_data(host, device_type="cm")
+    if result:
         return "cm worked"
     else:
         return "check log - 'docker logs snmp-poller -f'"
