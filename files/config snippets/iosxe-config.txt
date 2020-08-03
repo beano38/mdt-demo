@@ -3,12 +3,35 @@ Make sure to modify the receiver IP address and port.
 
 ***************************** Config *****************************
 
-telemetry ietf subscription 100
+telemetry ietf subscription 101
+ encoding encode-kvgpb
+ filter xpath /process-cpu-ios-xe-oper:cpu-usage
+ source-vrf Mgmt-intf
+ stream yang-push
+ update-policy periodic 3000
+ receiver ip address 10.89.188.28 57000 protocol grpc-tcp
+telemetry ietf subscription 102
  encoding encode-kvgpb
  filter xpath /interfaces-ios-xe-oper:interfaces/interface/statistics
  source-vrf Mgmt-intf
  stream yang-push
  update-policy periodic 3000
+ receiver ip address 10.89.188.28 57000 protocol grpc-tcp
+
+
+telemetry ietf subscription 200
+ encoding encode-kvgpb
+ filter xpath /docsis-ios-xe-oper:docsis-oper-data/cable-modem
+ source-vrf Mgmt-intf
+ stream yang-push
+ update-policy periodic 6000
+ receiver ip address 10.89.188.28 57000 protocol grpc-tcp
+telemetry ietf subscription 201
+ encoding encode-kvgpb
+ filter xpath /docsis-ios-xe-oper:docsis-oper-data/cm-summary-total
+ source-vrf Mgmt-intf
+ stream yang-push
+ update-policy periodic 6000
  receiver ip address 10.89.188.28 57000 protocol grpc-tcp
  
  

@@ -1,0 +1,15 @@
+
+# # config file version
+apiVersion: 1
+
+providers:
+ - name: 'cBR8'
+   orgId: 1
+   folder: 'cBR8'
+   type: file
+   editable: true
+   disableDeletion: false
+   options:
+     datasource: InfluxDB-MDT
+#     prefix: InfluxDB
+     path: /etc/grafana/provisioning/dashboards/cbr8
