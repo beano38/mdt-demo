@@ -1,0 +1,992 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": "-- Grafana --",
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "gnetId": null,
+  "graphTooltip": 0,
+  "id": 9,
+  "iteration": 1596472674317,
+  "links": [],
+  "panels": [
+    {
+      "datasource": "InfluxDB-MDT",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {
+            "align": null
+          },
+          "mappings": [
+            {
+              "from": "",
+              "id": 0,
+              "text": "",
+              "to": "",
+              "type": 1,
+              "value": ""
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": 6,
+      "options": {
+        "showHeader": true
+      },
+      "pluginVersion": "7.1.0",
+      "targets": [
+        {
+          "groupBy": [],
+          "measurement": "Cisco-IOS-XE-docsis-oper:docsis-oper-data/cable-modem",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "A",
+          "resultFormat": "table",
+          "select": [
+            [
+              {
+                "params": [
+                  "interface"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              },
+              {
+                "params": [
+                  "Cable Interface"
+                ],
+                "type": "alias"
+              }
+            ],
+            [
+              {
+                "params": [
+                  "ipv4_addr"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              },
+              {
+                "params": [
+                  "IP Address"
+                ],
+                "type": "alias"
+              }
+            ],
+            [
+              {
+                "params": [
+                  "ipv6_addr"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              },
+              {
+                "params": [
+                  "IPv6 Address"
+                ],
+                "type": "alias"
+              }
+            ],
+            [
+              {
+                "params": [
+                  "docsis_version"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              },
+              {
+                "params": [
+                  "DOCSIS Version"
+                ],
+                "type": "alias"
+              }
+            ],
+            [
+              {
+                "params": [
+                  "primary_sid"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              },
+              {
+                "params": [
+                  "Primary SID"
+                ],
+                "type": "alias"
+              }
+            ],
+            [
+              {
+                "params": [
+                  "cpe_number"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              },
+              {
+                "params": [
+                  "CPE Count"
+                ],
+                "type": "alias"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "source",
+              "operator": "=~",
+              "value": "/^$node$/"
+            },
+            {
+              "condition": "AND",
+              "key": "mac_address",
+              "operator": "=~",
+              "value": "/^$mac$/"
+            }
+          ]
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "State",
+      "transparent": true,
+      "type": "table"
+    },
+    {
+      "datasource": "InfluxDB-MDT",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {
+            "align": "center"
+          },
+          "mappings": [
+            {
+              "from": "",
+              "id": 0,
+              "text": "",
+              "to": "",
+              "type": 1,
+              "value": ""
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Cisco-IOS-XE-docsis-oper:docsis-oper-data/cable-modem.State"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "State"
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 11,
+        "w": 8,
+        "x": 0,
+        "y": 3
+      },
+      "id": 2,
+      "options": {
+        "showHeader": true
+      },
+      "pluginVersion": "7.1.0",
+      "targets": [
+        {
+          "groupBy": [],
+          "measurement": "Cisco-IOS-XE-docsis-oper:docsis-oper-data/cable-modem",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "state"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [
+                  "State"
+                ],
+                "type": "alias"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "source",
+              "operator": "=~",
+              "value": "/^$node$/"
+            },
+            {
+              "condition": "AND",
+              "key": "mac_address",
+              "operator": "=~",
+              "value": "/^$mac$/"
+            }
+          ]
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "State over time",
+      "transparent": true,
+      "type": "table"
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "InfluxDB-MDT",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "mappings": [
+            {
+              "from": "",
+              "id": 0,
+              "text": "",
+              "to": "",
+              "type": 1,
+              "value": ""
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 8,
+        "w": 15,
+        "x": 8,
+        "y": 3
+      },
+      "hiddenSeries": false,
+      "id": 4,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "nullPointMode": "null",
+      "percentage": false,
+      "pluginVersion": "7.1.0",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "alias": "[[tag_us_chan/chan_index]]",
+          "groupBy": [
+            {
+              "params": [
+                "$interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "us_chan/chan_index"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "none"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "Cisco-IOS-XE-docsis-oper:docsis-oper-data/cable-modem",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT mean(\"us_chan/rx_power\") FROM \"Cisco-IOS-XE-docsis-oper:docsis-oper-data/cable-modem\" WHERE (\"source\" =~ /^$node$/ AND \"mac_address\" =~ /^$mac$/) AND $timeFilter GROUP BY time($interval) fill(none)",
+          "rawQuery": false,
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "us_chan/rx_power"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "source",
+              "operator": "=~",
+              "value": "/^$node$/"
+            },
+            {
+              "condition": "AND",
+              "key": "mac_address",
+              "operator": "=~",
+              "value": "/^$mac$/"
+            }
+          ]
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "Upstream Receive Power",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "transparent": true,
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    }
+  ],
+  "schemaVersion": 26,
+  "style": "dark",
+  "tags": [],
+  "templating": {
+    "list": [
+      {
+        "allValue": null,
+        "current": {
+          "selected": true,
+          "text": "10.90.148.205",
+          "value": "10.90.148.205"
+        },
+        "datasource": "InfluxDB-MDT",
+        "definition": "SHOW TAG VALUES FROM \"Cisco-IOS-XE-docsis-oper:docsis-oper-data/cable-modem\" WITH KEY=\"source\"",
+        "hide": 0,
+        "includeAll": false,
+        "label": "cBR8",
+        "multi": false,
+        "name": "node",
+        "options": [
+          {
+            "selected": true,
+            "text": "10.90.148.205",
+            "value": "10.90.148.205"
+          }
+        ],
+        "query": "SHOW TAG VALUES FROM \"Cisco-IOS-XE-docsis-oper:docsis-oper-data/cable-modem\" WITH KEY=\"source\"",
+        "refresh": 0,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "tagValuesQuery": "",
+        "tags": [],
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      },
+      {
+        "allValue": null,
+        "current": {
+          "selected": true,
+          "text": "00:18:68:97:c9:96",
+          "value": "00:18:68:97:c9:96"
+        },
+        "datasource": "InfluxDB-MDT",
+        "definition": "SHOW TAG VALUES FROM \"Cisco-IOS-XE-docsis-oper:docsis-oper-data/cable-modem\"  WITH KEY = \"mac_address\"",
+        "hide": 0,
+        "includeAll": false,
+        "label": "MAC Address",
+        "multi": false,
+        "name": "mac",
+        "options": [
+          {
+            "selected": true,
+            "text": "00:18:68:97:c9:96",
+            "value": "00:18:68:97:c9:96"
+          },
+          {
+            "selected": false,
+            "text": "00:18:68:97:c9:b8",
+            "value": "00:18:68:97:c9:b8"
+          },
+          {
+            "selected": false,
+            "text": "00:18:68:97:cb:24",
+            "value": "00:18:68:97:cb:24"
+          },
+          {
+            "selected": false,
+            "text": "00:18:68:97:cb:3e",
+            "value": "00:18:68:97:cb:3e"
+          },
+          {
+            "selected": false,
+            "text": "00:18:68:97:cb:52",
+            "value": "00:18:68:97:cb:52"
+          },
+          {
+            "selected": false,
+            "text": "00:18:68:97:cc:54",
+            "value": "00:18:68:97:cc:54"
+          },
+          {
+            "selected": false,
+            "text": "00:18:68:97:d2:1e",
+            "value": "00:18:68:97:d2:1e"
+          },
+          {
+            "selected": false,
+            "text": "00:18:68:97:d2:4c",
+            "value": "00:18:68:97:d2:4c"
+          },
+          {
+            "selected": false,
+            "text": "00:18:68:97:d2:56",
+            "value": "00:18:68:97:d2:56"
+          },
+          {
+            "selected": false,
+            "text": "00:18:68:97:d2:5c",
+            "value": "00:18:68:97:d2:5c"
+          },
+          {
+            "selected": false,
+            "text": "00:18:68:9c:11:04",
+            "value": "00:18:68:9c:11:04"
+          },
+          {
+            "selected": false,
+            "text": "00:18:68:9c:11:1f",
+            "value": "00:18:68:9c:11:1f"
+          },
+          {
+            "selected": false,
+            "text": "00:18:68:9c:14:0d",
+            "value": "00:18:68:9c:14:0d"
+          },
+          {
+            "selected": false,
+            "text": "00:18:68:9c:15:6f",
+            "value": "00:18:68:9c:15:6f"
+          },
+          {
+            "selected": false,
+            "text": "00:18:68:9c:16:b9",
+            "value": "00:18:68:9c:16:b9"
+          },
+          {
+            "selected": false,
+            "text": "00:18:68:9c:17:94",
+            "value": "00:18:68:9c:17:94"
+          },
+          {
+            "selected": false,
+            "text": "00:18:68:9c:17:b8",
+            "value": "00:18:68:9c:17:b8"
+          },
+          {
+            "selected": false,
+            "text": "00:18:68:9c:17:c7",
+            "value": "00:18:68:9c:17:c7"
+          },
+          {
+            "selected": false,
+            "text": "00:18:68:9c:17:df",
+            "value": "00:18:68:9c:17:df"
+          },
+          {
+            "selected": false,
+            "text": "00:18:68:9c:17:ee",
+            "value": "00:18:68:9c:17:ee"
+          },
+          {
+            "selected": false,
+            "text": "00:18:68:9c:17:fa",
+            "value": "00:18:68:9c:17:fa"
+          },
+          {
+            "selected": false,
+            "text": "00:18:68:9c:1a:28",
+            "value": "00:18:68:9c:1a:28"
+          },
+          {
+            "selected": false,
+            "text": "00:18:68:9c:1a:c7",
+            "value": "00:18:68:9c:1a:c7"
+          },
+          {
+            "selected": false,
+            "text": "00:18:68:9c:1b:0f",
+            "value": "00:18:68:9c:1b:0f"
+          },
+          {
+            "selected": false,
+            "text": "00:18:68:9c:1b:90",
+            "value": "00:18:68:9c:1b:90"
+          },
+          {
+            "selected": false,
+            "text": "00:18:68:9c:1c:11",
+            "value": "00:18:68:9c:1c:11"
+          },
+          {
+            "selected": false,
+            "text": "00:18:68:9c:1c:a1",
+            "value": "00:18:68:9c:1c:a1"
+          },
+          {
+            "selected": false,
+            "text": "00:18:68:9c:1e:60",
+            "value": "00:18:68:9c:1e:60"
+          },
+          {
+            "selected": false,
+            "text": "00:18:68:9c:1e:9f",
+            "value": "00:18:68:9c:1e:9f"
+          },
+          {
+            "selected": false,
+            "text": "00:18:68:9c:1f:2c",
+            "value": "00:18:68:9c:1f:2c"
+          },
+          {
+            "selected": false,
+            "text": "00:18:68:9c:1f:32",
+            "value": "00:18:68:9c:1f:32"
+          },
+          {
+            "selected": false,
+            "text": "00:18:68:9c:1f:47",
+            "value": "00:18:68:9c:1f:47"
+          },
+          {
+            "selected": false,
+            "text": "00:18:68:9c:1f:5f",
+            "value": "00:18:68:9c:1f:5f"
+          },
+          {
+            "selected": false,
+            "text": "00:18:68:9c:1f:62",
+            "value": "00:18:68:9c:1f:62"
+          },
+          {
+            "selected": false,
+            "text": "00:18:68:9c:1f:92",
+            "value": "00:18:68:9c:1f:92"
+          },
+          {
+            "selected": false,
+            "text": "00:18:68:9c:1f:95",
+            "value": "00:18:68:9c:1f:95"
+          },
+          {
+            "selected": false,
+            "text": "14:c0:3e:0a:08:fd",
+            "value": "14:c0:3e:0a:08:fd"
+          },
+          {
+            "selected": false,
+            "text": "18:59:33:4e:84:46",
+            "value": "18:59:33:4e:84:46"
+          },
+          {
+            "selected": false,
+            "text": "18:59:33:53:09:66",
+            "value": "18:59:33:53:09:66"
+          },
+          {
+            "selected": false,
+            "text": "18:59:33:53:09:84",
+            "value": "18:59:33:53:09:84"
+          },
+          {
+            "selected": false,
+            "text": "18:59:33:53:09:a4",
+            "value": "18:59:33:53:09:a4"
+          },
+          {
+            "selected": false,
+            "text": "18:59:33:53:09:c6",
+            "value": "18:59:33:53:09:c6"
+          },
+          {
+            "selected": false,
+            "text": "18:59:33:53:0a:14",
+            "value": "18:59:33:53:0a:14"
+          },
+          {
+            "selected": false,
+            "text": "18:59:33:53:0a:34",
+            "value": "18:59:33:53:0a:34"
+          },
+          {
+            "selected": false,
+            "text": "18:59:33:53:0a:48",
+            "value": "18:59:33:53:0a:48"
+          },
+          {
+            "selected": false,
+            "text": "18:59:33:53:0b:14",
+            "value": "18:59:33:53:0b:14"
+          },
+          {
+            "selected": false,
+            "text": "38:c8:5c:09:0b:8e",
+            "value": "38:c8:5c:09:0b:8e"
+          },
+          {
+            "selected": false,
+            "text": "38:c8:5c:09:41:e8",
+            "value": "38:c8:5c:09:41:e8"
+          },
+          {
+            "selected": false,
+            "text": "38:c8:5c:09:42:7e",
+            "value": "38:c8:5c:09:42:7e"
+          },
+          {
+            "selected": false,
+            "text": "38:c8:5c:09:42:c0",
+            "value": "38:c8:5c:09:42:c0"
+          },
+          {
+            "selected": false,
+            "text": "38:c8:5c:09:47:8e",
+            "value": "38:c8:5c:09:47:8e"
+          },
+          {
+            "selected": false,
+            "text": "40:65:a3:ff:f4:c9",
+            "value": "40:65:a3:ff:f4:c9"
+          },
+          {
+            "selected": false,
+            "text": "48:00:33:ea:70:12",
+            "value": "48:00:33:ea:70:12"
+          },
+          {
+            "selected": false,
+            "text": "48:00:33:ef:0d:22",
+            "value": "48:00:33:ef:0d:22"
+          },
+          {
+            "selected": false,
+            "text": "48:00:33:ef:3c:d6",
+            "value": "48:00:33:ef:3c:d6"
+          },
+          {
+            "selected": false,
+            "text": "48:00:33:ef:3d:36",
+            "value": "48:00:33:ef:3d:36"
+          },
+          {
+            "selected": false,
+            "text": "48:00:33:ef:3e:be",
+            "value": "48:00:33:ef:3e:be"
+          },
+          {
+            "selected": false,
+            "text": "54:d4:6f:d1:10:e1",
+            "value": "54:d4:6f:d1:10:e1"
+          },
+          {
+            "selected": false,
+            "text": "5c:e3:0e:71:17:29",
+            "value": "5c:e3:0e:71:17:29"
+          },
+          {
+            "selected": false,
+            "text": "64:77:7d:90:3b:86",
+            "value": "64:77:7d:90:3b:86"
+          },
+          {
+            "selected": false,
+            "text": "64:77:7d:90:3d:c8",
+            "value": "64:77:7d:90:3d:c8"
+          },
+          {
+            "selected": false,
+            "text": "64:77:7d:90:3e:be",
+            "value": "64:77:7d:90:3e:be"
+          },
+          {
+            "selected": false,
+            "text": "64:77:7d:90:3f:24",
+            "value": "64:77:7d:90:3f:24"
+          },
+          {
+            "selected": false,
+            "text": "64:77:7d:90:40:ba",
+            "value": "64:77:7d:90:40:ba"
+          },
+          {
+            "selected": false,
+            "text": "64:77:7d:90:41:28",
+            "value": "64:77:7d:90:41:28"
+          },
+          {
+            "selected": false,
+            "text": "64:77:7d:90:41:f6",
+            "value": "64:77:7d:90:41:f6"
+          },
+          {
+            "selected": false,
+            "text": "64:77:7d:90:42:d8",
+            "value": "64:77:7d:90:42:d8"
+          },
+          {
+            "selected": false,
+            "text": "64:77:7d:90:43:00",
+            "value": "64:77:7d:90:43:00"
+          },
+          {
+            "selected": false,
+            "text": "64:77:7d:90:43:68",
+            "value": "64:77:7d:90:43:68"
+          },
+          {
+            "selected": false,
+            "text": "64:77:7d:90:44:66",
+            "value": "64:77:7d:90:44:66"
+          },
+          {
+            "selected": false,
+            "text": "64:77:7d:90:44:9e",
+            "value": "64:77:7d:90:44:9e"
+          },
+          {
+            "selected": false,
+            "text": "90:9d:7d:2e:8f:f5",
+            "value": "90:9d:7d:2e:8f:f5"
+          },
+          {
+            "selected": false,
+            "text": "90:9d:7d:2e:92:41",
+            "value": "90:9d:7d:2e:92:41"
+          },
+          {
+            "selected": false,
+            "text": "90:9d:7d:2e:93:c9",
+            "value": "90:9d:7d:2e:93:c9"
+          },
+          {
+            "selected": false,
+            "text": "a0:8e:78:69:fd:9e",
+            "value": "a0:8e:78:69:fd:9e"
+          },
+          {
+            "selected": false,
+            "text": "b0:da:f9:12:1d:b9",
+            "value": "b0:da:f9:12:1d:b9"
+          },
+          {
+            "selected": false,
+            "text": "b0:da:f9:12:34:0d",
+            "value": "b0:da:f9:12:34:0d"
+          },
+          {
+            "selected": false,
+            "text": "b0:da:f9:12:34:19",
+            "value": "b0:da:f9:12:34:19"
+          },
+          {
+            "selected": false,
+            "text": "b0:da:f9:2a:6f:cd",
+            "value": "b0:da:f9:2a:6f:cd"
+          },
+          {
+            "selected": false,
+            "text": "c8:fb:26:91:34:42",
+            "value": "c8:fb:26:91:34:42"
+          },
+          {
+            "selected": false,
+            "text": "c8:fb:26:99:36:04",
+            "value": "c8:fb:26:99:36:04"
+          },
+          {
+            "selected": false,
+            "text": "c8:fb:26:99:3d:ac",
+            "value": "c8:fb:26:99:3d:ac"
+          },
+          {
+            "selected": false,
+            "text": "d4:3f:cb:e1:83:11",
+            "value": "d4:3f:cb:e1:83:11"
+          },
+          {
+            "selected": false,
+            "text": "d4:3f:cb:e4:f5:01",
+            "value": "d4:3f:cb:e4:f5:01"
+          },
+          {
+            "selected": false,
+            "text": "f8:1d:0f:01:15:b0",
+            "value": "f8:1d:0f:01:15:b0"
+          },
+          {
+            "selected": false,
+            "text": "f8:1d:0f:01:70:10",
+            "value": "f8:1d:0f:01:70:10"
+          }
+        ],
+        "query": "SHOW TAG VALUES FROM \"Cisco-IOS-XE-docsis-oper:docsis-oper-data/cable-modem\"  WITH KEY = \"mac_address\"",
+        "refresh": 0,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "tagValuesQuery": "",
+        "tags": [],
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      }
+    ]
+  },
+  "time": {
+    "from": "now-6h",
+    "to": "now"
+  },
+  "timepicker": {
+    "refresh_intervals": [
+      "10s",
+      "30s",
+      "1m",
+      "5m",
+      "15m",
+      "30m",
+      "1h",
+      "2h",
+      "1d"
+    ]
+  },
+  "timezone": "",
+  "title": "Cable Modem Detail",
+  "uid": "Bns54C4Gz",
+  "version": 4
+}

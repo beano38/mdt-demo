@@ -15,7 +15,7 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 0,
-  "iteration": 1595435728751,
+  "iteration": 1596461606407,
   "links": [],
   "panels": [
     {
@@ -824,6 +824,7 @@
       },
       "yaxes": [
         {
+          "$$hashKey": "object:626",
           "format": "bps",
           "label": null,
           "logBase": 1,
@@ -832,6 +833,7 @@
           "show": true
         },
         {
+          "$$hashKey": "object:627",
           "format": "short",
           "label": null,
           "logBase": 1,
@@ -7339,14 +7341,14 @@
           "value": "PE2-Node115"
         },
         "datasource": "InfluxDB-MDT",
-        "definition": "SHOW TAG VALUES FROM ifstats WITH KEY=source",
+        "definition": "SHOW TAG VALUES FROM \"Cisco-IOS-XR-shellutil-oper:system-time/uptime\" WITH KEY=source",
         "hide": 0,
         "includeAll": false,
         "label": null,
         "multi": false,
         "name": "Node",
         "options": [],
-        "query": "SHOW TAG VALUES FROM ifstats WITH KEY=source",
+        "query": "SHOW TAG VALUES FROM \"Cisco-IOS-XR-shellutil-oper:system-time/uptime\" WITH KEY=source",
         "refresh": 1,
         "regex": "",
         "skipUrlSync": false,
@@ -7365,7 +7367,6 @@
   },
   "timepicker": {
     "refresh_intervals": [
-      "5s",
       "10s",
       "30s",
       "1m",
@@ -7391,5 +7392,5 @@
   "timezone": "browser",
   "title": "Device_Health_Check_Demo",
   "uid": "3In6qUMmz",
-  "version": 7
+  "version": 3
 }
