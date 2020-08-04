@@ -25,6 +25,7 @@ Simple Python based SNMP-Poller HTTP server with API
 1. Build the Docker Container
 ```
 cd mdt-demo/python
+nano config.yml (modify the config for your environment)
 docker build -t snmp .
 ```
 2. Check if it's there - `docker images`
