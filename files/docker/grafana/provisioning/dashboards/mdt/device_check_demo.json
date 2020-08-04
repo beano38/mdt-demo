@@ -15,7 +15,8 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 0,
-  "iteration": 1596461606407,
+  "id": 6,
+  "iteration": 1596565049769,
   "links": [],
   "panels": [
     {
@@ -415,17 +416,14 @@
     {
       "columns": [
         {
-          "$$hashKey": "object:1553",
           "text": "Current",
           "value": "current"
         },
         {
-          "$$hashKey": "object:1554",
           "text": "Min",
           "value": "min"
         },
         {
-          "$$hashKey": "object:1555",
           "text": "Max",
           "value": "max"
         }
@@ -824,7 +822,6 @@
       },
       "yaxes": [
         {
-          "$$hashKey": "object:626",
           "format": "bps",
           "label": null,
           "logBase": 1,
@@ -833,7 +830,6 @@
           "show": true
         },
         {
-          "$$hashKey": "object:627",
           "format": "short",
           "label": null,
           "logBase": 1,
@@ -850,17 +846,14 @@
     {
       "columns": [
         {
-          "$$hashKey": "object:1900",
           "text": "Current",
           "value": "current"
         },
         {
-          "$$hashKey": "object:1901",
           "text": "Min",
           "value": "min"
         },
         {
-          "$$hashKey": "object:1902",
           "text": "Max",
           "value": "max"
         }
@@ -2130,7 +2123,6 @@
         {
           "columns": [
             {
-              "$$hashKey": "object:3275",
               "text": "Current",
               "value": "current"
             }
@@ -7392,5 +7384,5 @@
   "timezone": "browser",
   "title": "Device_Health_Check_Demo",
   "uid": "3In6qUMmz",
-  "version": 3
+  "version": 4
 }
