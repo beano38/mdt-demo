@@ -16,8 +16,17 @@
   "gnetId": null,
   "graphTooltip": 0,
   "id": 10,
-  "iteration": 1596472812758,
-  "links": [],
+  "iteration": 1596564772635,
+  "links": [
+    {
+      "icon": "external link",
+      "tags": [],
+      "targetBlank": true,
+      "title": "Start Polling cBR8",
+      "type": "link",
+      "url": "http://10.89.188.28:9998/api/cmts/$node"
+    }
+  ],
   "panels": [
     {
       "datasource": "InfluxDB-MDT",
@@ -51,7 +60,17 @@
             },
             "properties": [
               {
-                "id": "links"
+                "id": "links",
+                "value": [
+                  {
+                    "title": "Cable Modem Detail",
+                    "url": "http://10.89.188.28:3000/d/Bns54C4Gz/cable-modem-detail?orgId=1&var-node=${node}&var-mac=${__data.fields[mac_address]}"
+                  }
+                ]
+              },
+              {
+                "id": "displayName",
+                "value": "MAC Address"
               }
             ]
           }
@@ -180,6 +199,99 @@
       "timeShift": null,
       "title": "Partial Online Modems",
       "type": "table"
+    },
+    {
+      "datasource": "InfluxDB-SNMP",
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {
+            "align": null
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Time"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 152
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 10,
+        "w": 24,
+        "x": 0,
+        "y": 5
+      },
+      "id": 4,
+      "options": {
+        "showHeader": true,
+        "sortBy": []
+      },
+      "pluginVersion": "7.1.0",
+      "targets": [
+        {
+          "groupBy": [
+            {
+              "params": [
+                "$interval"
+              ],
+              "type": "time"
+            }
+          ],
+          "measurement": "CMTS-SNMPv2-MIB",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "A",
+          "resultFormat": "table",
+          "select": [
+            [
+              {
+                "params": [
+                  "sysDescr.0"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "distinct"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "source",
+              "operator": "=~",
+              "value": "/^$node$/"
+            }
+          ]
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "SNMP Sample",
+      "type": "table"
     }
   ],
   "refresh": "10s",
@@ -242,5 +354,5 @@
   "timezone": "",
   "title": "Partial Mode Detail",
   "uid": "cCQFDjVGz",
-  "version": 6
+  "version": 12
 }

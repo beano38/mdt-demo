@@ -15,9 +15,9 @@ cmts:
   - mib: SNMPv2-MIB
     oid: sysDescr
     endpoint: 0
-#  - mib: SNMPv2-MIB
-#    oid: sysDescr
-#    endpoint: 0
+ # - mib: SNMPv2-MIB
+ #   oid: sysDescr
+ #   endpoint: 0
 
 # Cable Modem Configuration
 cm:

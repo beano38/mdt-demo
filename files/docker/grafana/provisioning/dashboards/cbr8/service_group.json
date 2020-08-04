@@ -15,11 +15,12 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 0,
-  "id": 8,
+  "id": 11,
+  "iteration": 1596564037026,
   "links": [],
   "panels": [
     {
-      "collapsed": true,
+      "collapsed": false,
       "datasource": null,
       "gridPos": {
         "h": 1,
@@ -27,9 +28,9 @@
         "x": 0,
         "y": 0
       },
-      "id": 2,
+      "id": 24,
       "panels": [],
-      "title": "All cBR8s",
+      "title": "Cable Modem Status",
       "type": "row"
     },
     {
@@ -56,7 +57,7 @@
         "x": 0,
         "y": 1
       },
-      "id": 4,
+      "id": 10,
       "options": {
         "colorMode": "value",
         "graphMode": "area",
@@ -84,7 +85,7 @@
             [
               {
                 "params": [
-                  "total"
+                  "cm_if_summary_totals/total"
                 ],
                 "type": "field"
               },
@@ -94,7 +95,19 @@
               }
             ]
           ],
-          "tags": []
+          "tags": [
+            {
+              "key": "source",
+              "operator": "=~",
+              "value": "/^$node$/"
+            },
+            {
+              "condition": "AND",
+              "key": "cm_if_summary_totals/interface",
+              "operator": "=~",
+              "value": "/^$sg$/"
+            }
+          ]
         }
       ],
       "timeFrom": null,
@@ -126,7 +139,7 @@
         "x": 3,
         "y": 1
       },
-      "id": 5,
+      "id": 9,
       "options": {
         "colorMode": "value",
         "graphMode": "area",
@@ -154,7 +167,7 @@
             [
               {
                 "params": [
-                  "registered"
+                  "cm_if_summary_totals/registered"
                 ],
                 "type": "field"
               },
@@ -164,7 +177,19 @@
               }
             ]
           ],
-          "tags": []
+          "tags": [
+            {
+              "key": "source",
+              "operator": "=~",
+              "value": "/^$node$/"
+            },
+            {
+              "condition": "AND",
+              "key": "cm_if_summary_totals/interface",
+              "operator": "=~",
+              "value": "/^$sg$/"
+            }
+          ]
         }
       ],
       "timeFrom": null,
@@ -196,7 +221,7 @@
         "x": 6,
         "y": 1
       },
-      "id": 6,
+      "id": 7,
       "options": {
         "colorMode": "value",
         "graphMode": "area",
@@ -224,7 +249,7 @@
             [
               {
                 "params": [
-                  "wideband"
+                  "cm_if_summary_totals/wideband"
                 ],
                 "type": "field"
               },
@@ -234,7 +259,19 @@
               }
             ]
           ],
-          "tags": []
+          "tags": [
+            {
+              "key": "source",
+              "operator": "=~",
+              "value": "/^$node$/"
+            },
+            {
+              "condition": "AND",
+              "key": "cm_if_summary_totals/interface",
+              "operator": "=~",
+              "value": "/^$sg$/"
+            }
+          ]
         }
       ],
       "timeFrom": null,
@@ -266,7 +303,7 @@
         "x": 9,
         "y": 1
       },
-      "id": 7,
+      "id": 5,
       "options": {
         "colorMode": "value",
         "graphMode": "area",
@@ -294,7 +331,7 @@
             [
               {
                 "params": [
-                  "inito"
+                  "cm_if_summary_totals/inito"
                 ],
                 "type": "field"
               },
@@ -304,7 +341,19 @@
               }
             ]
           ],
-          "tags": []
+          "tags": [
+            {
+              "key": "source",
+              "operator": "=~",
+              "value": "/^$node$/"
+            },
+            {
+              "condition": "AND",
+              "key": "cm_if_summary_totals/interface",
+              "operator": "=~",
+              "value": "/^$sg$/"
+            }
+          ]
         }
       ],
       "timeFrom": null,
@@ -336,7 +385,7 @@
         "x": 12,
         "y": 1
       },
-      "id": 8,
+      "id": 6,
       "options": {
         "colorMode": "value",
         "graphMode": "area",
@@ -364,7 +413,7 @@
             [
               {
                 "params": [
-                  "initd"
+                  "cm_if_summary_totals/initd"
                 ],
                 "type": "field"
               },
@@ -374,7 +423,19 @@
               }
             ]
           ],
-          "tags": []
+          "tags": [
+            {
+              "key": "source",
+              "operator": "=~",
+              "value": "/^$node$/"
+            },
+            {
+              "condition": "AND",
+              "key": "cm_if_summary_totals/interface",
+              "operator": "=~",
+              "value": "/^$sg$/"
+            }
+          ]
         }
       ],
       "timeFrom": null,
@@ -406,7 +467,7 @@
         "x": 15,
         "y": 1
       },
-      "id": 9,
+      "id": 4,
       "options": {
         "colorMode": "value",
         "graphMode": "area",
@@ -428,13 +489,15 @@
           "measurement": "Cisco-IOS-XE-docsis-oper:docsis-oper-data/cm-summary-total",
           "orderByTime": "ASC",
           "policy": "default",
+          "query": "SELECT last(\"initrc\") FROM \"Cisco-IOS-XE-docsis-oper:docsis-oper-data/cable-modem\" WHERE (\"source\" = '10.90.148.205') AND $timeFilter",
+          "rawQuery": false,
           "refId": "A",
           "resultFormat": "time_series",
           "select": [
             [
               {
                 "params": [
-                  "initrc"
+                  "cm_if_summary_totals/initrc"
                 ],
                 "type": "field"
               },
@@ -444,7 +507,19 @@
               }
             ]
           ],
-          "tags": []
+          "tags": [
+            {
+              "key": "source",
+              "operator": "=~",
+              "value": "/^$node$/"
+            },
+            {
+              "condition": "AND",
+              "key": "cm_if_summary_totals/interface",
+              "operator": "=~",
+              "value": "/^$sg$/"
+            }
+          ]
         }
       ],
       "timeFrom": null,
@@ -462,8 +537,12 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "red",
+                "color": "green",
                 "value": null
+              },
+              {
+                "color": "red",
+                "value": 1
               }
             ]
           }
@@ -476,7 +555,7 @@
         "x": 18,
         "y": 1
       },
-      "id": 10,
+      "id": 8,
       "options": {
         "colorMode": "value",
         "graphMode": "area",
@@ -498,13 +577,15 @@
           "measurement": "Cisco-IOS-XE-docsis-oper:docsis-oper-data/cm-summary-total",
           "orderByTime": "ASC",
           "policy": "default",
+          "query": "SELECT last(\"offline\") FROM \"Cisco-IOS-XE-docsis-oper:docsis-oper-data/cm-summary-total\" WHERE (\"source\" =~ /^$cBR8$/) AND $timeFilter",
+          "rawQuery": false,
           "refId": "A",
           "resultFormat": "time_series",
           "select": [
             [
               {
                 "params": [
-                  "offline"
+                  "cm_if_summary_totals/offline"
                 ],
                 "type": "field"
               },
@@ -514,7 +595,19 @@
               }
             ]
           ],
-          "tags": []
+          "tags": [
+            {
+              "key": "source",
+              "operator": "=~",
+              "value": "/^$node$/"
+            },
+            {
+              "condition": "AND",
+              "key": "cm_if_summary_totals/interface",
+              "operator": "=~",
+              "value": "/^$sg$/"
+            }
+          ]
         }
       ],
       "timeFrom": null,
@@ -523,80 +616,9 @@
       "type": "stat"
     },
     {
-      "datasource": "InfluxDB-MDT",
-      "fieldConfig": {
-        "defaults": {
-          "custom": {},
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "red",
-                "value": null
-              }
-            ]
-          }
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 3,
-        "w": 3,
-        "x": 21,
-        "y": 1
-      },
-      "id": 11,
-      "options": {
-        "colorMode": "value",
-        "graphMode": "area",
-        "justifyMode": "auto",
-        "orientation": "auto",
-        "reduceOptions": {
-          "calcs": [
-            "mean"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "textMode": "auto"
-      },
-      "pluginVersion": "7.1.0",
-      "targets": [
-        {
-          "groupBy": [],
-          "measurement": "Cisco-IOS-XE-docsis-oper:docsis-oper-data/cm-summary-total",
-          "orderByTime": "ASC",
-          "policy": "default",
-          "query": "SELECT sum(count) FROM (SELECT count(distinct(\"state\")) FROM \"Cisco-IOS-XE-docsis-oper:docsis-oper-data/cable-modem\" WHERE (\"state\" = 'p-online-pt')  AND $timeFilter GROUP BY \"mac_address\")",
-          "rawQuery": true,
-          "refId": "A",
-          "resultFormat": "time_series",
-          "select": [
-            [
-              {
-                "params": [
-                  "total"
-                ],
-                "type": "field"
-              },
-              {
-                "params": [],
-                "type": "last"
-              }
-            ]
-          ],
-          "tags": []
-        }
-      ],
-      "timeFrom": null,
-      "timeShift": null,
-      "title": "Partial Mode",
-      "type": "stat"
-    },
-    {
       "aliasColors": {
         "Initializing": "orange",
+        "Offline": "red",
         "Registered": "green",
         "Total": "super-light-green",
         "Wideband": "blue"
@@ -634,7 +656,7 @@
         "y": 4
       },
       "hiddenSeries": false,
-      "id": 13,
+      "id": 20,
       "legend": {
         "avg": false,
         "current": false,
@@ -683,17 +705,29 @@
             [
               {
                 "params": [
-                  "total"
+                  "cm_if_summary_totals/total"
                 ],
                 "type": "field"
               },
               {
                 "params": [],
-                "type": "mean"
+                "type": "last"
               }
             ]
           ],
-          "tags": []
+          "tags": [
+            {
+              "key": "source",
+              "operator": "=~",
+              "value": "/^$node$/"
+            },
+            {
+              "condition": "AND",
+              "key": "cm_if_summary_totals/interface",
+              "operator": "=~",
+              "value": "/^$sg$/"
+            }
+          ]
         },
         {
           "alias": "Registered",
@@ -720,17 +754,29 @@
             [
               {
                 "params": [
-                  "registered"
+                  "cm_if_summary_totals/registered"
                 ],
                 "type": "field"
               },
               {
                 "params": [],
-                "type": "mean"
+                "type": "last"
               }
             ]
           ],
-          "tags": []
+          "tags": [
+            {
+              "key": "source",
+              "operator": "=~",
+              "value": "/^$node$/"
+            },
+            {
+              "condition": "AND",
+              "key": "cm_if_summary_totals/interface",
+              "operator": "=~",
+              "value": "/^$sg$/"
+            }
+          ]
         },
         {
           "alias": "Wideband",
@@ -757,17 +803,29 @@
             [
               {
                 "params": [
-                  "wideband"
+                  "cm_if_summary_totals/wideband"
                 ],
                 "type": "field"
               },
               {
                 "params": [],
-                "type": "mean"
+                "type": "last"
               }
             ]
           ],
-          "tags": []
+          "tags": [
+            {
+              "key": "source",
+              "operator": "=~",
+              "value": "/^$node$/"
+            },
+            {
+              "condition": "AND",
+              "key": "cm_if_summary_totals/interface",
+              "operator": "=~",
+              "value": "/^$sg$/"
+            }
+          ]
         },
         {
           "alias": "Initializing",
@@ -788,21 +846,57 @@
           "measurement": "Cisco-IOS-XE-docsis-oper:docsis-oper-data/cm-summary-total",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "SELECT mean(\"initd\") + mean(\"initio\") + mean(\"inito\") + mean(\"initrc\") FROM \"Cisco-IOS-XE-docsis-oper:docsis-oper-data/cm-summary-total\" WHERE\n $timeFilter GROUP BY time($__interval) fill(none)",
-          "rawQuery": true,
+          "query": "SELECT last(\"cm_if_summary_totals/initd\"), last(\"cm_if_summary_totals/initio\"), last(\"cm_if_summary_totals/inito\"), last(\"cm_if_summary_totals/initrc\") FROM \"Cisco-IOS-XE-docsis-oper:docsis-oper-data/cm-summary-total\" WHERE (\"source\" =~ /^$node$/ AND \"cm_if_summary_totals/interface\" =~ /^$sg$/) AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "rawQuery": false,
           "refId": "D",
           "resultFormat": "time_series",
           "select": [
             [
               {
                 "params": [
-                  "initd"
+                  "cm_if_summary_totals/initd"
                 ],
                 "type": "field"
               },
               {
                 "params": [],
-                "type": "mean"
+                "type": "last"
+              }
+            ],
+            [
+              {
+                "params": [
+                  "cm_if_summary_totals/initio"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              }
+            ],
+            [
+              {
+                "params": [
+                  "cm_if_summary_totals/inito"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              }
+            ],
+            [
+              {
+                "params": [
+                  "cm_if_summary_totals/initrc"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
               }
             ]
           ],
@@ -810,7 +904,13 @@
             {
               "key": "source",
               "operator": "=~",
-              "value": "/^$cBR8$/"
+              "value": "/^$node$/"
+            },
+            {
+              "condition": "AND",
+              "key": "cm_if_summary_totals/interface",
+              "operator": "=~",
+              "value": "/^$sg$/"
             }
           ]
         },
@@ -839,17 +939,29 @@
             [
               {
                 "params": [
-                  "offline"
+                  "cm_if_summary_totals/offline"
                 ],
                 "type": "field"
               },
               {
                 "params": [],
-                "type": "mean"
+                "type": "last"
               }
             ]
           ],
-          "tags": []
+          "tags": [
+            {
+              "key": "source",
+              "operator": "=~",
+              "value": "/^$node$/"
+            },
+            {
+              "condition": "AND",
+              "key": "cm_if_summary_totals/interface",
+              "operator": "=~",
+              "value": "/^$sg$/"
+            }
+          ]
         }
       ],
       "thresholds": [],
@@ -892,189 +1004,6 @@
         "align": false,
         "alignLevel": null
       }
-    },
-    {
-      "datasource": "InfluxDB-MDT",
-      "fieldConfig": {
-        "defaults": {
-          "custom": {
-            "align": "center"
-          },
-          "links": [],
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
-          }
-        },
-        "overrides": [
-          {
-            "matcher": {
-              "id": "byName",
-              "options": "source"
-            },
-            "properties": [
-              {
-                "id": "links",
-                "value": [
-                  {
-                    "title": "cBR8 Details",
-                    "url": "http://10.89.188.28:3000/d/uv86hqnGk/cbr8-summary?orgId=1&refresh=10s"
-                  }
-                ]
-              },
-              {
-                "id": "displayName",
-                "value": "cBR8 Host"
-              }
-            ]
-          }
-        ]
-      },
-      "gridPos": {
-        "h": 6,
-        "w": 24,
-        "x": 0,
-        "y": 13
-      },
-      "id": 15,
-      "options": {
-        "showHeader": true,
-        "sortBy": [
-          {
-            "desc": true,
-            "displayName": "Source"
-          }
-        ]
-      },
-      "pluginVersion": "7.1.0",
-      "targets": [
-        {
-          "alias": "[[tag_source]]",
-          "groupBy": [
-            {
-              "params": [
-                "source"
-              ],
-              "type": "tag"
-            }
-          ],
-          "measurement": "Cisco-IOS-XE-docsis-oper:docsis-oper-data/cm-summary-total",
-          "orderByTime": "ASC",
-          "policy": "default",
-          "query": "SELECT last(\"total\") AS \"Total\", last(\"registered\") AS \"Registered\", last(\"wideband\") AS \"Wideband\", last(\"initd\") + last(\"inito\") + last(\"initio\") + last(\"initrc\") AS \"Initializing\", last(\"offline\") AS \"Offline\" FROM \"Cisco-IOS-XE-docsis-oper:docsis-oper-data/cm-summary-total\" WHERE $timeFilter GROUP BY \"source\"",
-          "rawQuery": true,
-          "refId": "A",
-          "resultFormat": "table",
-          "select": [
-            [
-              {
-                "params": [
-                  "total"
-                ],
-                "type": "field"
-              },
-              {
-                "params": [],
-                "type": "last"
-              },
-              {
-                "params": [
-                  "Total"
-                ],
-                "type": "alias"
-              }
-            ],
-            [
-              {
-                "params": [
-                  "registered"
-                ],
-                "type": "field"
-              },
-              {
-                "params": [],
-                "type": "last"
-              },
-              {
-                "params": [
-                  "Registered"
-                ],
-                "type": "alias"
-              }
-            ],
-            [
-              {
-                "params": [
-                  "wideband"
-                ],
-                "type": "field"
-              },
-              {
-                "params": [],
-                "type": "last"
-              },
-              {
-                "params": [
-                  "Wideband"
-                ],
-                "type": "alias"
-              }
-            ],
-            [
-              {
-                "params": [
-                  "initd"
-                ],
-                "type": "field"
-              },
-              {
-                "params": [],
-                "type": "last"
-              },
-              {
-                "params": [
-                  "Initializing"
-                ],
-                "type": "alias"
-              }
-            ],
-            [
-              {
-                "params": [
-                  "offline"
-                ],
-                "type": "field"
-              },
-              {
-                "params": [],
-                "type": "last"
-              },
-              {
-                "params": [
-                  "Offline"
-                ],
-                "type": "alias"
-              }
-            ]
-          ],
-          "tags": []
-        }
-      ],
-      "timeFrom": null,
-      "timeShift": null,
-      "title": "Summary by cBR8",
-      "transparent": true,
-      "type": "table"
     }
   ],
   "refresh": "10s",
@@ -1082,7 +1011,127 @@
   "style": "dark",
   "tags": [],
   "templating": {
-    "list": []
+    "list": [
+      {
+        "allValue": null,
+        "current": {
+          "selected": false,
+          "text": "10.90.148.205",
+          "value": "10.90.148.205"
+        },
+        "datasource": "InfluxDB-MDT",
+        "definition": "SHOW TAG VALUES FROM \"Cisco-IOS-XE-docsis-oper:docsis-oper-data/cable-modem\" WITH KEY=\"source\"",
+        "hide": 0,
+        "includeAll": false,
+        "label": "cBR8",
+        "multi": false,
+        "name": "node",
+        "options": [
+          {
+            "selected": true,
+            "text": "10.90.148.205",
+            "value": "10.90.148.205"
+          }
+        ],
+        "query": "SHOW TAG VALUES FROM \"Cisco-IOS-XE-docsis-oper:docsis-oper-data/cable-modem\" WITH KEY=\"source\"",
+        "refresh": 0,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "tagValuesQuery": "",
+        "tags": [],
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      },
+      {
+        "allValue": null,
+        "current": {
+          "selected": false,
+          "text": "C1/0/2",
+          "value": "C1/0/2"
+        },
+        "datasource": "InfluxDB-MDT",
+        "definition": "show tag values from \"Cisco-IOS-XE-docsis-oper:docsis-oper-data/cm-summary-total\" with key=\"cm_if_summary_totals/interface\"",
+        "hide": 0,
+        "includeAll": false,
+        "label": "Cable Interface",
+        "multi": false,
+        "name": "sg",
+        "options": [
+          {
+            "selected": true,
+            "text": "C1/0/2",
+            "value": "C1/0/2"
+          },
+          {
+            "selected": false,
+            "text": "C2/0/10",
+            "value": "C2/0/10"
+          },
+          {
+            "selected": false,
+            "text": "C2/0/12",
+            "value": "C2/0/12"
+          },
+          {
+            "selected": false,
+            "text": "C2/0/15",
+            "value": "C2/0/15"
+          },
+          {
+            "selected": false,
+            "text": "C2/0/6",
+            "value": "C2/0/6"
+          },
+          {
+            "selected": false,
+            "text": "C6/0/0",
+            "value": "C6/0/0"
+          },
+          {
+            "selected": false,
+            "text": "C6/0/2",
+            "value": "C6/0/2"
+          },
+          {
+            "selected": false,
+            "text": "C6/0/9",
+            "value": "C6/0/9"
+          },
+          {
+            "selected": false,
+            "text": "C9/0/0",
+            "value": "C9/0/0"
+          },
+          {
+            "selected": false,
+            "text": "C9/0/2",
+            "value": "C9/0/2"
+          },
+          {
+            "selected": false,
+            "text": "C9/0/8",
+            "value": "C9/0/8"
+          },
+          {
+            "selected": false,
+            "text": "C9/0/9",
+            "value": "C9/0/9"
+          }
+        ],
+        "query": "show tag values from \"Cisco-IOS-XE-docsis-oper:docsis-oper-data/cm-summary-total\" with key=\"cm_if_summary_totals/interface\"",
+        "refresh": 0,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "tagValuesQuery": "",
+        "tags": [],
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      }
+    ]
   },
   "time": {
     "from": "now-3h",
@@ -1102,7 +1151,7 @@
     ]
   },
   "timezone": "",
-  "title": "cBR8 Overview",
-  "uid": "xm7gmj4Gk",
-  "version": 24
+  "title": "Service Group Detail",
+  "uid": "3rjav94rv",
+  "version": 6
 }

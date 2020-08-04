@@ -16,9 +16,23 @@
   "gnetId": null,
   "graphTooltip": 0,
   "id": 7,
-  "iteration": 1596476432302,
+  "iteration": 1596564010524,
   "links": [],
   "panels": [
+    {
+      "collapsed": false,
+      "datasource": null,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": 33,
+      "panels": [],
+      "title": "cBR8 Health",
+      "type": "row"
+    },
     {
       "datasource": "InfluxDB-MDT",
       "fieldConfig": {
@@ -51,10 +65,10 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 7,
-        "w": 6,
-        "x": 0,
-        "y": 0
+        "h": 4,
+        "w": 3,
+        "x": 13,
+        "y": 1
       },
       "id": 12,
       "options": {
@@ -109,7 +123,7 @@
             {
               "key": "source",
               "operator": "=~",
-              "value": "/^$cBR8$/"
+              "value": "/^$node$/"
             }
           ]
         }
@@ -135,9 +149,9 @@
       "fillGradient": 0,
       "gridPos": {
         "h": 7,
-        "w": 9,
-        "x": 6,
-        "y": 0
+        "w": 15,
+        "x": 0,
+        "y": 5
       },
       "hiddenSeries": false,
       "id": 30,
@@ -169,7 +183,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "alias": "[[tag_name]] transmit",
+          "alias": "[[tag_name]] OUT",
           "groupBy": [
             {
               "params": [
@@ -193,7 +207,7 @@
           "measurement": "Cisco-IOS-XE-interfaces-oper:interfaces/interface/statistics",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "SELECT distinct(\"tx_kbps\") FROM \"Cisco-IOS-XE-interfaces-oper:interfaces/interface/statistics\" WHERE (\"source\" =~ /^$cBR8$/ AND \"name\" =~ /^TenGigabitEthernet4.*$/) AND $timeFilter GROUP BY time($__interval), \"name\" fill(none)",
+          "query": "SELECT distinct(\"tx_kbps\") FROM \"Cisco-IOS-XE-interfaces-oper:interfaces/interface/statistics\" WHERE (\"source\" =~ /^$node$/ AND \"name\" =~ /^TenGigabitEthernet[45].*$/) AND $timeFilter GROUP BY time($__interval), \"name\" fill(none)",
           "rawQuery": true,
           "refId": "A",
           "resultFormat": "time_series",
@@ -226,7 +240,7 @@
           ]
         },
         {
-          "alias": "[[tag_name]] receive",
+          "alias": "[[tag_name]] IN",
           "groupBy": [
             {
               "params": [
@@ -250,7 +264,7 @@
           "measurement": "Cisco-IOS-XE-interfaces-oper:interfaces/interface/statistics",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "SELECT distinct(\"rx_kbps\") FROM \"Cisco-IOS-XE-interfaces-oper:interfaces/interface/statistics\" WHERE (\"source\" =~ /^$cBR8$/ AND \"name\" =~ /^TenGigabitEthernet4.*$/) AND $timeFilter GROUP BY time($__interval), \"name\" fill(none)",
+          "query": "SELECT distinct(\"rx_kbps\") FROM \"Cisco-IOS-XE-interfaces-oper:interfaces/interface/statistics\" WHERE (\"source\" =~ /^$node$/ AND \"name\" =~ /^TenGigabitEthernet[45].*$/) AND $timeFilter GROUP BY time($__interval), \"name\" fill(none)",
           "rawQuery": true,
           "refId": "B",
           "resultFormat": "time_series",
@@ -287,7 +301,7 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "Supervisor 4/0 TenGig WAN Interfaces",
+      "title": "Supervisor WAN Interfaces",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -342,18 +356,15 @@
         "h": 7,
         "w": 9,
         "x": 15,
-        "y": 0
+        "y": 5
       },
       "hiddenSeries": false,
-      "id": 31,
+      "id": 35,
       "legend": {
-        "alignAsTable": false,
         "avg": false,
         "current": false,
-        "hideZero": true,
         "max": false,
         "min": false,
-        "rightSide": true,
         "show": true,
         "total": false,
         "values": false
@@ -372,19 +383,13 @@
       "steppedLine": false,
       "targets": [
         {
-          "alias": "[[tag_name]] transmit",
+          "alias": "OUT",
           "groupBy": [
             {
               "params": [
                 "$__interval"
               ],
               "type": "time"
-            },
-            {
-              "params": [
-                "name"
-              ],
-              "type": "tag"
             },
             {
               "params": [
@@ -396,8 +401,6 @@
           "measurement": "Cisco-IOS-XE-interfaces-oper:interfaces/interface/statistics",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "SELECT distinct(\"tx_kbps\") FROM \"Cisco-IOS-XE-interfaces-oper:interfaces/interface/statistics\" WHERE (\"source\" =~ /^$cBR8$/ AND \"name\" =~ /^TenGigabitEthernet5.*$/) AND $timeFilter GROUP BY time($__interval), \"name\" fill(none)",
-          "rawQuery": true,
           "refId": "A",
           "resultFormat": "time_series",
           "select": [
@@ -410,38 +413,32 @@
               },
               {
                 "params": [],
-                "type": "distinct"
+                "type": "mean"
               }
             ]
           ],
           "tags": [
             {
               "key": "source",
-              "operator": "=~",
-              "value": "/^$cBR8$/"
+              "operator": "=",
+              "value": "10.90.148.205"
             },
             {
               "condition": "AND",
               "key": "name",
               "operator": "=",
-              "value": "TenGigabitEthernet4/1/0"
+              "value": "GigabitEthernet0"
             }
           ]
         },
         {
-          "alias": "[[tag_name]] receive",
+          "alias": "IN",
           "groupBy": [
             {
               "params": [
                 "$__interval"
               ],
               "type": "time"
-            },
-            {
-              "params": [
-                "name"
-              ],
-              "type": "tag"
             },
             {
               "params": [
@@ -453,8 +450,6 @@
           "measurement": "Cisco-IOS-XE-interfaces-oper:interfaces/interface/statistics",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "SELECT distinct(\"rx_kbps\") FROM \"Cisco-IOS-XE-interfaces-oper:interfaces/interface/statistics\" WHERE (\"source\" =~ /^$cBR8$/ AND \"name\" =~ /^TenGigabitEthernet5.*$/) AND $timeFilter GROUP BY time($__interval), \"name\" fill(none)",
-          "rawQuery": true,
           "refId": "B",
           "resultFormat": "time_series",
           "select": [
@@ -467,21 +462,21 @@
               },
               {
                 "params": [],
-                "type": "distinct"
+                "type": "mean"
               }
             ]
           ],
           "tags": [
             {
               "key": "source",
-              "operator": "=~",
-              "value": "/^$cBR8$/"
+              "operator": "=",
+              "value": "10.90.148.205"
             },
             {
               "condition": "AND",
               "key": "name",
               "operator": "=",
-              "value": "TenGigabitEthernet4/1/0"
+              "value": "GigabitEthernet0"
             }
           ]
         }
@@ -490,7 +485,7 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "Supervisor 5/0 TenGig WAN Interfaces",
+      "title": "Management Interface",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -507,7 +502,7 @@
       "yaxes": [
         {
           "format": "Kbits",
-          "label": null,
+          "label": "",
           "logBase": 1,
           "max": null,
           "min": null,
@@ -515,7 +510,7 @@
         },
         {
           "format": "short",
-          "label": null,
+          "label": "",
           "logBase": 1,
           "max": null,
           "min": null,
@@ -534,7 +529,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 7
+        "y": 12
       },
       "id": 24,
       "panels": [],
@@ -563,7 +558,7 @@
         "h": 3,
         "w": 3,
         "x": 0,
-        "y": 8
+        "y": 13
       },
       "id": 10,
       "options": {
@@ -607,7 +602,7 @@
             {
               "key": "source",
               "operator": "=~",
-              "value": "/^$cBR8$/"
+              "value": "/^$node$/"
             }
           ]
         }
@@ -639,7 +634,7 @@
         "h": 3,
         "w": 3,
         "x": 3,
-        "y": 8
+        "y": 13
       },
       "id": 9,
       "options": {
@@ -683,7 +678,7 @@
             {
               "key": "source",
               "operator": "=~",
-              "value": "/^$cBR8$/"
+              "value": "/^$node$/"
             }
           ]
         }
@@ -715,7 +710,7 @@
         "h": 3,
         "w": 3,
         "x": 6,
-        "y": 8
+        "y": 13
       },
       "id": 7,
       "options": {
@@ -759,7 +754,7 @@
             {
               "key": "source",
               "operator": "=~",
-              "value": "/^$cBR8$/"
+              "value": "/^$node$/"
             }
           ]
         }
@@ -791,7 +786,7 @@
         "h": 3,
         "w": 3,
         "x": 9,
-        "y": 8
+        "y": 13
       },
       "id": 5,
       "options": {
@@ -835,7 +830,7 @@
             {
               "key": "source",
               "operator": "=~",
-              "value": "/^$cBR8$/"
+              "value": "/^$node$/"
             }
           ]
         }
@@ -867,7 +862,7 @@
         "h": 3,
         "w": 3,
         "x": 12,
-        "y": 8
+        "y": 13
       },
       "id": 6,
       "options": {
@@ -911,7 +906,7 @@
             {
               "key": "source",
               "operator": "=~",
-              "value": "/^$cBR8$/"
+              "value": "/^$node$/"
             }
           ]
         }
@@ -943,7 +938,7 @@
         "h": 3,
         "w": 3,
         "x": 15,
-        "y": 8
+        "y": 13
       },
       "id": 4,
       "options": {
@@ -989,7 +984,7 @@
             {
               "key": "source",
               "operator": "=~",
-              "value": "/^$cBR8$/"
+              "value": "/^$node$/"
             }
           ]
         }
@@ -1025,7 +1020,7 @@
         "h": 3,
         "w": 3,
         "x": 18,
-        "y": 8
+        "y": 13
       },
       "id": 8,
       "options": {
@@ -1071,7 +1066,7 @@
             {
               "key": "source",
               "operator": "=~",
-              "value": "/^$cBR8$/"
+              "value": "/^$node$/"
             }
           ]
         }
@@ -1130,7 +1125,7 @@
         "h": 3,
         "w": 3,
         "x": 21,
-        "y": 8
+        "y": 13
       },
       "id": 16,
       "options": {
@@ -1155,7 +1150,7 @@
           "measurement": "Cisco-IOS-XE-docsis-oper:docsis-oper-data/cm-summary-total",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "SELECT sum(count) FROM (SELECT count(distinct(\"state\")) FROM \"Cisco-IOS-XE-docsis-oper:docsis-oper-data/cable-modem\" WHERE (\"state\" = 'p-online-pt') and (\"source\" =~ /^$cBR8$/) AND $timeFilter GROUP BY \"mac_address\")",
+          "query": "SELECT sum(count) FROM (SELECT count(distinct(\"state\")) FROM \"Cisco-IOS-XE-docsis-oper:docsis-oper-data/cable-modem\" WHERE (\"state\" = 'p-online-pt') and (\"source\" =~ /^$node$/) AND $timeFilter GROUP BY \"mac_address\")",
           "rawQuery": true,
           "refId": "A",
           "resultFormat": "time_series",
@@ -1190,7 +1185,8 @@
     {
       "aliasColors": {
         "Registered": "green",
-        "Total": "super-light-green"
+        "Total": "super-light-green",
+        "Wideband": "blue"
       },
       "bars": true,
       "dashLength": 10,
@@ -1222,7 +1218,7 @@
         "h": 9,
         "w": 24,
         "x": 0,
-        "y": 11
+        "y": 16
       },
       "hiddenSeries": false,
       "id": 20,
@@ -1288,7 +1284,7 @@
             {
               "key": "source",
               "operator": "=~",
-              "value": "/^$cBR8$/"
+              "value": "/^$node$/"
             }
           ]
         },
@@ -1331,7 +1327,7 @@
             {
               "key": "source",
               "operator": "=~",
-              "value": "/^$cBR8$/"
+              "value": "/^$node$/"
             }
           ]
         },
@@ -1374,7 +1370,7 @@
             {
               "key": "source",
               "operator": "=~",
-              "value": "/^$cBR8$/"
+              "value": "/^$node$/"
             }
           ]
         },
@@ -1397,7 +1393,7 @@
           "measurement": "Cisco-IOS-XE-docsis-oper:docsis-oper-data/cm-summary-total",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "SELECT last(\"initd\") + last(\"initio\") + last(\"inito\") + last(\"initrc\") FROM \"Cisco-IOS-XE-docsis-oper:docsis-oper-data/cm-summary-total\" WHERE (\"source\" =~ /^$cBR8$/) AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "query": "SELECT last(\"initd\") + last(\"initio\") + last(\"inito\") + last(\"initrc\") FROM \"Cisco-IOS-XE-docsis-oper:docsis-oper-data/cm-summary-total\" WHERE (\"source\" =~ /^$node$/) AND $timeFilter GROUP BY time($__interval) fill(none)",
           "rawQuery": true,
           "refId": "D",
           "resultFormat": "time_series",
@@ -1462,7 +1458,7 @@
             {
               "key": "source",
               "operator": "=~",
-              "value": "/^$cBR8$/"
+              "value": "/^$node$/"
             }
           ]
         }
@@ -1540,6 +1536,16 @@
               {
                 "id": "displayName",
                 "value": "Cable Interface"
+              },
+              {
+                "id": "links",
+                "value": [
+                  {
+                    "targetBlank": false,
+                    "title": "Interface Detail",
+                    "url": "http://10.89.188.28:3000/d/3rjav94rv/service-group-detail?orgId=1&refresh=10s&var-node=${node}&var-sg=${__data.fields[cm_if_summary_totals/interface]}"
+                  }
+                ]
               }
             ]
           }
@@ -1549,7 +1555,7 @@
         "h": 7,
         "w": 24,
         "x": 0,
-        "y": 20
+        "y": 25
       },
       "id": 22,
       "options": {
@@ -1748,7 +1754,7 @@
             {
               "key": "source",
               "operator": "=~",
-              "value": "/^$cBR8$/"
+              "value": "/^$node$/"
             }
           ]
         }
@@ -1766,10 +1772,214 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 27
+        "y": 32
       },
       "id": 28,
       "panels": [
+        {
+          "aliasColors": {},
+          "bars": false,
+          "dashLength": 10,
+          "dashes": false,
+          "datasource": "InfluxDB-MDT",
+          "fieldConfig": {
+            "defaults": {
+              "custom": {}
+            },
+            "overrides": []
+          },
+          "fill": 1,
+          "fillGradient": 0,
+          "gridPos": {
+            "h": 7,
+            "w": 24,
+            "x": 0,
+            "y": 33
+          },
+          "hiddenSeries": false,
+          "id": 31,
+          "legend": {
+            "alignAsTable": false,
+            "avg": false,
+            "current": false,
+            "hideZero": true,
+            "max": false,
+            "min": false,
+            "rightSide": true,
+            "show": true,
+            "total": false,
+            "values": false
+          },
+          "lines": true,
+          "linewidth": 1,
+          "nullPointMode": "null",
+          "percentage": false,
+          "pluginVersion": "7.1.0",
+          "pointradius": 2,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "spaceLength": 10,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "alias": "[[tag_name]] transmit",
+              "groupBy": [
+                {
+                  "params": [
+                    "$__interval"
+                  ],
+                  "type": "time"
+                },
+                {
+                  "params": [
+                    "name"
+                  ],
+                  "type": "tag"
+                },
+                {
+                  "params": [
+                    "none"
+                  ],
+                  "type": "fill"
+                }
+              ],
+              "measurement": "Cisco-IOS-XE-interfaces-oper:interfaces/interface/statistics",
+              "orderByTime": "ASC",
+              "policy": "default",
+              "query": "SELECT distinct(\"tx_kbps\") FROM \"Cisco-IOS-XE-interfaces-oper:interfaces/interface/statistics\" WHERE (\"source\" =~ /^$node$/ AND \"name\" =~ /^TenGigabitEthernet[01236789].*$/) AND $timeFilter GROUP BY time($__interval), \"name\" fill(none)",
+              "rawQuery": true,
+              "refId": "A",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "tx_kbps"
+                    ],
+                    "type": "field"
+                  },
+                  {
+                    "params": [],
+                    "type": "distinct"
+                  }
+                ]
+              ],
+              "tags": [
+                {
+                  "key": "source",
+                  "operator": "=~",
+                  "value": "/^$cBR8$/"
+                },
+                {
+                  "condition": "AND",
+                  "key": "name",
+                  "operator": "=",
+                  "value": "TenGigabitEthernet4/1/0"
+                }
+              ]
+            },
+            {
+              "alias": "[[tag_name]] receive",
+              "groupBy": [
+                {
+                  "params": [
+                    "$__interval"
+                  ],
+                  "type": "time"
+                },
+                {
+                  "params": [
+                    "name"
+                  ],
+                  "type": "tag"
+                },
+                {
+                  "params": [
+                    "none"
+                  ],
+                  "type": "fill"
+                }
+              ],
+              "measurement": "Cisco-IOS-XE-interfaces-oper:interfaces/interface/statistics",
+              "orderByTime": "ASC",
+              "policy": "default",
+              "query": "SELECT distinct(\"rx_kbps\") FROM \"Cisco-IOS-XE-interfaces-oper:interfaces/interface/statistics\" WHERE (\"source\" =~ /^$node$/ AND \"name\" =~ /^TenGigabitEthernet[01236789].*$/) AND $timeFilter GROUP BY time($__interval), \"name\" fill(none)",
+              "rawQuery": true,
+              "refId": "B",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "rx_kbps"
+                    ],
+                    "type": "field"
+                  },
+                  {
+                    "params": [],
+                    "type": "distinct"
+                  }
+                ]
+              ],
+              "tags": [
+                {
+                  "key": "source",
+                  "operator": "=~",
+                  "value": "/^$cBR8$/"
+                },
+                {
+                  "condition": "AND",
+                  "key": "name",
+                  "operator": "=",
+                  "value": "TenGigabitEthernet4/1/0"
+                }
+              ]
+            }
+          ],
+          "thresholds": [],
+          "timeFrom": null,
+          "timeRegions": [],
+          "timeShift": null,
+          "title": "DPIC Interfaces",
+          "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+          },
+          "transparent": true,
+          "type": "graph",
+          "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "format": "Kbits",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            }
+          ],
+          "yaxis": {
+            "align": false,
+            "alignLevel": null
+          }
+        },
         {
           "datasource": "InfluxDB-MDT",
           "fieldConfig": {
@@ -1819,7 +2029,7 @@
             "h": 8,
             "w": 24,
             "x": 0,
-            "y": 28
+            "y": 40
           },
           "id": 26,
           "options": {
@@ -1943,7 +2153,7 @@
                 {
                   "key": "source",
                   "operator": "=~",
-                  "value": "/^$cBR8$/"
+                  "value": "/^$node$/"
                 }
               ]
             }
@@ -1955,7 +2165,7 @@
           "type": "table"
         }
       ],
-      "title": "RPD Info",
+      "title": "Remote PHY Info",
       "type": "row"
     },
     {
@@ -1965,7 +2175,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 28
+        "y": 33
       },
       "id": 14,
       "panels": [],
@@ -2006,7 +2216,7 @@
                 "value": [
                   {
                     "title": "Cable Modem Detail",
-                    "url": "http://10.89.188.28:3000/d/Bns54C4Gz/cable-modem-detail-copy?orgId=1&var-node=${cBR8}&var-sg_id=C1%2F0%2F2&var-mac=${__data.fields[mac_address]}&from=now-30m&to=now"
+                    "url": "http://10.89.188.28:3000/d/Bns54C4Gz/cable-modem-detail-copy?orgId=1&var-node=${node}&var-sg_id=C1%2F0%2F2&var-mac=${__data.fields[mac_address]}&from=now-30m&to=now"
                   }
                 ]
               },
@@ -2022,7 +2232,7 @@
         "h": 8,
         "w": 24,
         "x": 0,
-        "y": 29
+        "y": 34
       },
       "id": 15,
       "options": {
@@ -2130,7 +2340,7 @@
             {
               "key": "source",
               "operator": "=~",
-              "value": "/^$cBR8$/"
+              "value": "/^$node$/"
             }
           ]
         }
@@ -2159,9 +2369,9 @@
         "definition": "SHOW TAG VALUES FROM \"Cisco-IOS-XE-docsis-oper:docsis-oper-data/cable-modem\" WITH KEY=\"source\"",
         "hide": 0,
         "includeAll": false,
-        "label": null,
+        "label": "cBR8",
         "multi": false,
-        "name": "cBR8",
+        "name": "node",
         "options": [
           {
             "selected": true,
@@ -2202,5 +2412,5 @@
   "timezone": "",
   "title": "cBR8 Detail",
   "uid": "uv86hqnGk",
-  "version": 73
+  "version": 85
 }
