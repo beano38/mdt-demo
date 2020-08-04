@@ -15,7 +15,7 @@ def cmts_api(host):
     if result:
         return "cmts worked"
     else:
-        return "check log - 'docker logs snmp-poller -f'"
+        return "check log - 'docker logs snmp -f'"
 
 
 @app.route('/api/cm/<string:host>', methods=['GET'])
@@ -24,7 +24,7 @@ def cm_api(host):
     if result:
         return "cm worked"
     else:
-        return "check log - 'docker logs snmp-poller -f'"
+        return "check log - 'docker logs snmp -f'"
 
 
 # if __name__ == "__main___":
