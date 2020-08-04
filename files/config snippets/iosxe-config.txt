@@ -18,6 +18,13 @@ telemetry ietf subscription 102
  update-policy periodic 3000
  receiver ip address 10.89.188.28 57000 protocol grpc-tcp
 
+telemetry ietf subscription 103
+ encoding encode-kvgpb
+ filter xpath /ha-ios-xe-oper:ha-oper-data/ha-infra
+ source-vrf Mgmt-intf
+ stream yang-push
+ update-policy periodic 6000
+ receiver ip address 10.89.188.28 57000 protocol grpc-tcp
 
 telemetry ietf subscription 200
  encoding encode-kvgpb
