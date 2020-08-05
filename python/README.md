@@ -24,7 +24,7 @@ add this to end of file:
     ports:
       - 9998:9998
     volumes:
-      - ${DOCKERDIR}/snmp-poller/config.yml:/usr/bin/app/config.yml
+      - ${DOCKERDIR}/snmp/config.yml:/usr/bin/app/config.yml
     extra_hosts:
       - "cbr8-lab:10.128.128.3"
     restart: always
