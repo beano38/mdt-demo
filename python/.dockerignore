@@ -5,7 +5,7 @@ Dockerfile
 README.md
 docker-compose.yml
 
-config.yml
+config/config.yml
 
 .idea/
 __pycache__/

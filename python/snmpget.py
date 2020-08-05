@@ -8,7 +8,7 @@ import oyaml as yaml
 # Local python files
 from database_insert import create_measurement
 
-CONFIG_FILE = os.getenv("config", "config.yml")
+CONFIG_FILE = os.getenv("config", "config/config.yml")
 
 # Load the Config File
 try:
@@ -67,8 +67,8 @@ def gather_data(host, device_type):
             snmp_get(host, config["cm"]["community_string"], config["cm"]["port"], oid, device_type)
 
     if output:
-        import json
-        print(json.dumps(output, indent=2))
+        for msg in output:
+            print("RESPONSE: HOST {} from MIB {}: {}".format(msg["tags"]["source"], msg["measurement"], msg["fields"]))
         create_measurement(db_name=config["influxdb"]["snmp_db"], measurement=output)
 
     return output
@@ -79,4 +79,3 @@ if __name__ == "__main__":
     output = gather_data(host=cbr8, device_type="cmts")
     import json
     print(json.dumps(output, indent=2))
-

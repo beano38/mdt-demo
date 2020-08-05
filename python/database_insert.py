@@ -5,14 +5,14 @@ import sys
 from influxdb import InfluxDBClient
 import oyaml as yaml
 
-CONFIG_FILE = os.getenv("config", "config.yml")
+CONFIG_FILE = os.getenv("config", "config/config.yml")
 
 # Load the Config File
 try:
     with open(CONFIG_FILE) as f:
         config = yaml.safe_load(f)
 except FileNotFoundError:
-    print("CRITICAL:  Configuration file not found, devault falue is 'config.yml'")
+    print("CRITICAL:  Configuration file not found, default value is 'config.yml'")
     sys.exit(1)
 
 
