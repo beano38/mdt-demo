@@ -5,7 +5,7 @@ import sys
 from influxdb import InfluxDBClient
 import oyaml as yaml
 
-CONFIG_FILE = os.getenv("config", "config/config.yml")
+CONFIG_FILE = os.getenv("config", "config.yml")
 
 # Load the Config File
 try:

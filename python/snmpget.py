@@ -8,7 +8,7 @@ import oyaml as yaml
 # Local python files
 from database_insert import create_measurement
 
-CONFIG_FILE = os.getenv("config", "config/config.yml")
+CONFIG_FILE = os.getenv("config", "config.yml")
 
 # Load the Config File
 try:
