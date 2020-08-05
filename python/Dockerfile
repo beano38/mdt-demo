@@ -12,6 +12,4 @@ COPY . /usr/src/app
 
 EXPOSE 9998
 
-VOLUME ["/usr/src/app"]
-
 CMD [ "python", "-u", "./snmpapi.py" ]
