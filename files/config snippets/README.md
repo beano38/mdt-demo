@@ -1,4 +1,4 @@
-###Forcing a cable modem into partial mode
+### Forcing a cable modem into partial mode
 
 ```
 rr-lwr-cbr8#scm f81d.0f01.15b0 wide rc
