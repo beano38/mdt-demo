@@ -16,7 +16,7 @@
   "gnetId": null,
   "graphTooltip": 0,
   "id": 11,
-  "iteration": 1596564037026,
+  "iteration": 1596820595617,
   "links": [],
   "panels": [
     {
@@ -1153,5 +1153,5 @@
   "timezone": "",
   "title": "Service Group Detail",
   "uid": "3rjav94rv",
-  "version": 6
+  "version": 7
 }

@@ -8,7 +8,7 @@ telemetry ietf subscription 101
  filter xpath /process-cpu-ios-xe-oper:cpu-usage
  source-vrf Mgmt-intf
  stream yang-push
- update-policy periodic 3000
+ update-policy periodic 18000
  receiver ip address 10.89.188.28 57000 protocol grpc-tcp
 telemetry ietf subscription 102
  encoding encode-kvgpb
@@ -17,10 +17,17 @@ telemetry ietf subscription 102
  stream yang-push
  update-policy periodic 3000
  receiver ip address 10.89.188.28 57000 protocol grpc-tcp
-
 telemetry ietf subscription 103
  encoding encode-kvgpb
- filter xpath /ha-ios-xe-oper:ha-oper-data/ha-infra
+ filter xpath /memory-ios-xe-oper:memory-statistics
+ source-vrf Mgmt-intf
+ stream yang-push
+ update-policy periodic 180000
+ receiver ip address 10.89.188.28 57000 protocol grpc-tcp
+
+ telemetry ietf subscription 104
+ encoding encode-kvgpb
+ filter xpath /ospf-ios-xe-oper:ospf-oper-data/ospf-state
  source-vrf Mgmt-intf
  stream yang-push
  update-policy periodic 6000
@@ -53,6 +60,7 @@ no telemetry ietf subscription 101
 no telemetry ietf subscription 102
 no telemetry ietf subscription 200
 no telemetry ietf subscription 201
+no telemetry ietf subscription 202
  
  
 

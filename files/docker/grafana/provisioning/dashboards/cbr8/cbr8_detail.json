@@ -16,7 +16,7 @@
   "gnetId": null,
   "graphTooltip": 0,
   "id": 7,
-  "iteration": 1596564010524,
+  "iteration": 1596820538569,
   "links": [],
   "panels": [
     {
@@ -67,7 +67,7 @@
       "gridPos": {
         "h": 4,
         "w": 3,
-        "x": 13,
+        "x": 0,
         "y": 1
       },
       "id": 12,
@@ -103,6 +103,8 @@
           "measurement": "Cisco-IOS-XE-process-cpu-oper:cpu-usage/cpu-utilization",
           "orderByTime": "ASC",
           "policy": "default",
+          "query": "SELECT distinct(\"one_minute\") FROM \"Cisco-IOS-XE-process-cpu-oper:cpu-usage/cpu-utilization\" WHERE (\"source\" =~ /^$node$/) AND $timeFilter GROUP BY time($interval) fill(none)",
+          "rawQuery": true,
           "refId": "A",
           "resultFormat": "time_series",
           "select": [
@@ -116,6 +118,12 @@
               {
                 "params": [],
                 "type": "distinct"
+              },
+              {
+                "params": [
+                  " / 100"
+                ],
+                "type": "math"
               }
             ]
           ],
@@ -148,215 +156,10 @@
       "fill": 1,
       "fillGradient": 0,
       "gridPos": {
-        "h": 7,
-        "w": 15,
-        "x": 0,
-        "y": 5
-      },
-      "hiddenSeries": false,
-      "id": 30,
-      "legend": {
-        "alignAsTable": false,
-        "avg": false,
-        "current": false,
-        "hideZero": true,
-        "max": false,
-        "min": false,
-        "rightSide": true,
-        "show": true,
-        "total": false,
-        "values": false
-      },
-      "lines": true,
-      "linewidth": 1,
-      "nullPointMode": "null",
-      "percentage": false,
-      "pluginVersion": "7.1.0",
-      "pointradius": 2,
-      "points": false,
-      "renderer": "flot",
-      "seriesOverrides": [
-        {}
-      ],
-      "spaceLength": 10,
-      "stack": false,
-      "steppedLine": false,
-      "targets": [
-        {
-          "alias": "[[tag_name]] OUT",
-          "groupBy": [
-            {
-              "params": [
-                "$__interval"
-              ],
-              "type": "time"
-            },
-            {
-              "params": [
-                "name"
-              ],
-              "type": "tag"
-            },
-            {
-              "params": [
-                "none"
-              ],
-              "type": "fill"
-            }
-          ],
-          "measurement": "Cisco-IOS-XE-interfaces-oper:interfaces/interface/statistics",
-          "orderByTime": "ASC",
-          "policy": "default",
-          "query": "SELECT distinct(\"tx_kbps\") FROM \"Cisco-IOS-XE-interfaces-oper:interfaces/interface/statistics\" WHERE (\"source\" =~ /^$node$/ AND \"name\" =~ /^TenGigabitEthernet[45].*$/) AND $timeFilter GROUP BY time($__interval), \"name\" fill(none)",
-          "rawQuery": true,
-          "refId": "A",
-          "resultFormat": "time_series",
-          "select": [
-            [
-              {
-                "params": [
-                  "tx_kbps"
-                ],
-                "type": "field"
-              },
-              {
-                "params": [],
-                "type": "distinct"
-              }
-            ]
-          ],
-          "tags": [
-            {
-              "key": "source",
-              "operator": "=~",
-              "value": "/^$cBR8$/"
-            },
-            {
-              "condition": "AND",
-              "key": "name",
-              "operator": "=",
-              "value": "TenGigabitEthernet4/1/0"
-            }
-          ]
-        },
-        {
-          "alias": "[[tag_name]] IN",
-          "groupBy": [
-            {
-              "params": [
-                "$__interval"
-              ],
-              "type": "time"
-            },
-            {
-              "params": [
-                "name"
-              ],
-              "type": "tag"
-            },
-            {
-              "params": [
-                "none"
-              ],
-              "type": "fill"
-            }
-          ],
-          "measurement": "Cisco-IOS-XE-interfaces-oper:interfaces/interface/statistics",
-          "orderByTime": "ASC",
-          "policy": "default",
-          "query": "SELECT distinct(\"rx_kbps\") FROM \"Cisco-IOS-XE-interfaces-oper:interfaces/interface/statistics\" WHERE (\"source\" =~ /^$node$/ AND \"name\" =~ /^TenGigabitEthernet[45].*$/) AND $timeFilter GROUP BY time($__interval), \"name\" fill(none)",
-          "rawQuery": true,
-          "refId": "B",
-          "resultFormat": "time_series",
-          "select": [
-            [
-              {
-                "params": [
-                  "rx_kbps"
-                ],
-                "type": "field"
-              },
-              {
-                "params": [],
-                "type": "distinct"
-              }
-            ]
-          ],
-          "tags": [
-            {
-              "key": "source",
-              "operator": "=~",
-              "value": "/^$cBR8$/"
-            },
-            {
-              "condition": "AND",
-              "key": "name",
-              "operator": "=",
-              "value": "TenGigabitEthernet4/1/0"
-            }
-          ]
-        }
-      ],
-      "thresholds": [],
-      "timeFrom": null,
-      "timeRegions": [],
-      "timeShift": null,
-      "title": "Supervisor WAN Interfaces",
-      "tooltip": {
-        "shared": true,
-        "sort": 0,
-        "value_type": "individual"
-      },
-      "type": "graph",
-      "xaxis": {
-        "buckets": null,
-        "mode": "time",
-        "name": null,
-        "show": true,
-        "values": []
-      },
-      "yaxes": [
-        {
-          "format": "Kbits",
-          "label": null,
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": true
-        },
-        {
-          "format": "short",
-          "label": null,
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": true
-        }
-      ],
-      "yaxis": {
-        "align": false,
-        "alignLevel": null
-      }
-    },
-    {
-      "aliasColors": {},
-      "bars": false,
-      "dashLength": 10,
-      "dashes": false,
-      "datasource": "InfluxDB-MDT",
-      "fieldConfig": {
-        "defaults": {
-          "custom": {}
-        },
-        "overrides": []
-      },
-      "fill": 1,
-      "fillGradient": 0,
-      "gridPos": {
-        "h": 7,
+        "h": 8,
         "w": 9,
         "x": 15,
-        "y": 5
+        "y": 1
       },
       "hiddenSeries": false,
       "id": 35,
@@ -523,13 +326,662 @@
       }
     },
     {
+      "datasource": "InfluxDB-MDT",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              },
+              {
+                "color": "#EAB839",
+                "value": 90
+              },
+              {
+                "color": "#6ED0E0",
+                "value": 100
+              }
+            ]
+          },
+          "unit": "percent"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 3,
+        "x": 0,
+        "y": 5
+      },
+      "id": 36,
+      "options": {
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "mean"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showThresholdLabels": false,
+        "showThresholdMarkers": true
+      },
+      "pluginVersion": "7.1.0",
+      "targets": [
+        {
+          "groupBy": [],
+          "measurement": "Cisco-IOS-XE-memory-oper:memory-statistics/memory-statistic",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT last(\"used_memory\") /last(\"total_memory\") * 100 FROM \"Cisco-IOS-XE-memory-oper:memory-statistics/memory-statistic\" WHERE (\"source\" =~ /^$node$/) AND $timeFilter",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "used_memory"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              }
+            ],
+            [
+              {
+                "params": [
+                  "total_memory"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "source",
+              "operator": "=~",
+              "value": "/^$node$/"
+            }
+          ]
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Memory Utilization",
+      "type": "gauge"
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "InfluxDB-MDT",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 8,
+        "w": 15,
+        "x": 0,
+        "y": 9
+      },
+      "hiddenSeries": false,
+      "id": 30,
+      "legend": {
+        "alignAsTable": false,
+        "avg": false,
+        "current": false,
+        "hideZero": true,
+        "max": false,
+        "min": false,
+        "rightSide": true,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "nullPointMode": "null",
+      "percentage": false,
+      "pluginVersion": "7.1.0",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [
+        {}
+      ],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "alias": "[[tag_name]] OUT",
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "name"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "none"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "Cisco-IOS-XE-interfaces-oper:interfaces/interface/statistics",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT distinct(\"tx_kbps\") FROM \"Cisco-IOS-XE-interfaces-oper:interfaces/interface/statistics\" WHERE (\"source\" =~ /^$node$/ AND \"name\" =~ /^TenGigabitEthernet[45].*$/) AND $timeFilter GROUP BY time($__interval), \"name\" fill(none)",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "tx_kbps"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "distinct"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "source",
+              "operator": "=~",
+              "value": "/^$cBR8$/"
+            },
+            {
+              "condition": "AND",
+              "key": "name",
+              "operator": "=",
+              "value": "TenGigabitEthernet4/1/0"
+            }
+          ]
+        },
+        {
+          "alias": "[[tag_name]] IN",
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "name"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "none"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "Cisco-IOS-XE-interfaces-oper:interfaces/interface/statistics",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT distinct(\"rx_kbps\") FROM \"Cisco-IOS-XE-interfaces-oper:interfaces/interface/statistics\" WHERE (\"source\" =~ /^$node$/ AND \"name\" =~ /^TenGigabitEthernet[45].*$/) AND $timeFilter GROUP BY time($__interval), \"name\" fill(none)",
+          "rawQuery": true,
+          "refId": "B",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "rx_kbps"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "distinct"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "source",
+              "operator": "=~",
+              "value": "/^$cBR8$/"
+            },
+            {
+              "condition": "AND",
+              "key": "name",
+              "operator": "=",
+              "value": "TenGigabitEthernet4/1/0"
+            }
+          ]
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "WAN Interfaces",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "Kbits",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "columns": [
+        {
+          "text": "Current",
+          "value": "current"
+        },
+        {
+          "text": "Min",
+          "value": "min"
+        },
+        {
+          "text": "Max",
+          "value": "max"
+        }
+      ],
+      "datasource": "InfluxDB-MDT",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "filterNull": false,
+      "fontSize": "100%",
+      "gridPos": {
+        "h": 8,
+        "w": 9,
+        "x": 15,
+        "y": 9
+      },
+      "id": 40,
+      "links": [],
+      "pageSize": null,
+      "scroll": true,
+      "showHeader": true,
+      "sort": {
+        "col": 0,
+        "desc": true
+      },
+      "styles": [
+        {
+          "align": "auto",
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "pattern": "Time",
+          "type": "date"
+        },
+        {
+          "align": "auto",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "decimals": 0,
+          "pattern": "/.*/",
+          "thresholds": [],
+          "type": "number",
+          "unit": "none"
+        }
+      ],
+      "targets": [
+        {
+          "alias": "Input CRC Errors",
+          "dsType": "influxdb",
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "Cisco-IOS-XE-interfaces-oper:interfaces/interface/statistics",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT last(\"in_crc_errors\") FROM \"Cisco-IOS-XE-interfaces-oper:interfaces/interface/statistics\" WHERE (\"source\" =~ /^$node$/ AND \"name\" =~ /^TenGigabitEthernet[0123456789].*$/) AND $timeFilter GROUP BY time($__interval) fill(null)",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "in_crc_errors"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "source",
+              "operator": "=~",
+              "value": "/^$node$/"
+            }
+          ]
+        },
+        {
+          "alias": "Input Discards",
+          "dsType": "influxdb",
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "Cisco-IOS-XE-interfaces-oper:interfaces/interface/statistics",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT last(\"in_discards\") FROM \"Cisco-IOS-XE-interfaces-oper:interfaces/interface/statistics\" WHERE (\"source\" =~ /^$node$/ AND \"name\" =~ /^TenGigabitEthernet[0123456789].*$/)  AND $timeFilter GROUP BY time($__interval) fill(null)",
+          "rawQuery": true,
+          "refId": "B",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "in_discards"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "source",
+              "operator": "=~",
+              "value": "/^$node$/"
+            }
+          ]
+        },
+        {
+          "alias": "Input Errors",
+          "dsType": "influxdb",
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "Cisco-IOS-XE-interfaces-oper:interfaces/interface/statistics",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT last(\"in_errors\") FROM \"Cisco-IOS-XE-interfaces-oper:interfaces/interface/statistics\" WHERE (\"source\" =~ /^$node$/ AND \"name\" =~ /^TenGigabitEthernet[0123456789].*$/)  AND $timeFilter GROUP BY time($__interval) fill(null)",
+          "rawQuery": true,
+          "refId": "C",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "in_errors"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "source",
+              "operator": "=~",
+              "value": "/^$node$/"
+            }
+          ]
+        },
+        {
+          "alias": "Output Errors",
+          "dsType": "influxdb",
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "Cisco-IOS-XR-infra-statsd-oper:infra-statistics/interfaces/interface/latest/generic-counters",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT last(\"out_errors\") FROM \"Cisco-IOS-XE-interfaces-oper:interfaces/interface/statistics\" WHERE (\"source\" =~ /^$node$/ AND \"name\" =~ /^TenGigabitEthernet[0123456789].*$/)  AND $timeFilter GROUP BY time($__interval) fill(null)",
+          "rawQuery": true,
+          "refId": "D",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "output_errors"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "source",
+              "operator": "=~",
+              "value": "/^$node$/"
+            }
+          ]
+        },
+        {
+          "alias": "Output Discards",
+          "dsType": "influxdb",
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "Cisco-IOS-XR-infra-statsd-oper:infra-statistics/interfaces/interface/latest/generic-counters",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT last(\"out_discards\") FROM \"Cisco-IOS-XE-interfaces-oper:interfaces/interface/statistics\" WHERE (\"source\" =~ /^$node$/ AND \"name\" =~ /^TenGigabitEthernet[0123456789].*$/)  AND $timeFilter GROUP BY time($__interval) fill(null)",
+          "rawQuery": true,
+          "refId": "E",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "input_queue_drops"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "source",
+              "operator": "=~",
+              "value": "/^$Node$/"
+            }
+          ]
+        },
+        {
+          "alias": "Flaps",
+          "dsType": "influxdb",
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "Cisco-IOS-XR-infra-statsd-oper:infra-statistics/interfaces/interface/latest/generic-counters",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT last(\"num_flaps\") FROM \"Cisco-IOS-XE-interfaces-oper:interfaces/interface/statistics\" WHERE (\"source\" =~ /^$node$/ AND \"name\" =~ /^TenGigabitEthernet[0123456789].*$/)  AND $timeFilter GROUP BY time($__interval) fill(null)",
+          "rawQuery": true,
+          "refId": "F",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "output_queue_drops"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "source",
+              "operator": "=~",
+              "value": "/^$Node$/"
+            }
+          ]
+        }
+      ],
+      "title": "WAN Interfaces Drops and Errors",
+      "transform": "timeseries_aggregations",
+      "type": "table-old"
+    },
+    {
       "collapsed": false,
       "datasource": null,
       "gridPos": {
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 12
+        "y": 17
       },
       "id": 24,
       "panels": [],
@@ -558,7 +1010,7 @@
         "h": 3,
         "w": 3,
         "x": 0,
-        "y": 13
+        "y": 18
       },
       "id": 10,
       "options": {
@@ -634,7 +1086,7 @@
         "h": 3,
         "w": 3,
         "x": 3,
-        "y": 13
+        "y": 18
       },
       "id": 9,
       "options": {
@@ -710,7 +1162,7 @@
         "h": 3,
         "w": 3,
         "x": 6,
-        "y": 13
+        "y": 18
       },
       "id": 7,
       "options": {
@@ -786,7 +1238,7 @@
         "h": 3,
         "w": 3,
         "x": 9,
-        "y": 13
+        "y": 18
       },
       "id": 5,
       "options": {
@@ -862,7 +1314,7 @@
         "h": 3,
         "w": 3,
         "x": 12,
-        "y": 13
+        "y": 18
       },
       "id": 6,
       "options": {
@@ -938,7 +1390,7 @@
         "h": 3,
         "w": 3,
         "x": 15,
-        "y": 13
+        "y": 18
       },
       "id": 4,
       "options": {
@@ -1020,7 +1472,7 @@
         "h": 3,
         "w": 3,
         "x": 18,
-        "y": 13
+        "y": 18
       },
       "id": 8,
       "options": {
@@ -1125,7 +1577,7 @@
         "h": 3,
         "w": 3,
         "x": 21,
-        "y": 13
+        "y": 18
       },
       "id": 16,
       "options": {
@@ -1184,6 +1636,7 @@
     },
     {
       "aliasColors": {
+        "Initializing": "light-orange",
         "Registered": "green",
         "Total": "super-light-green",
         "Wideband": "blue"
@@ -1218,7 +1671,7 @@
         "h": 9,
         "w": 24,
         "x": 0,
-        "y": 16
+        "y": 21
       },
       "hiddenSeries": false,
       "id": 20,
@@ -1555,7 +2008,7 @@
         "h": 7,
         "w": 24,
         "x": 0,
-        "y": 25
+        "y": 30
       },
       "id": 22,
       "options": {
@@ -1772,7 +2225,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 32
+        "y": 37
       },
       "id": 28,
       "panels": [
@@ -1794,7 +2247,7 @@
             "h": 7,
             "w": 24,
             "x": 0,
-            "y": 33
+            "y": 46
           },
           "hiddenSeries": false,
           "id": 31,
@@ -2029,7 +2482,7 @@
             "h": 8,
             "w": 24,
             "x": 0,
-            "y": 40
+            "y": 53
           },
           "id": 26,
           "options": {
@@ -2037,7 +2490,7 @@
             "sortBy": [
               {
                 "desc": false,
-                "displayName": "Mac Address"
+                "displayName": "Clock Synced"
               }
             ]
           },
@@ -2175,7 +2628,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 33
+        "y": 38
       },
       "id": 14,
       "panels": [],
@@ -2232,7 +2685,7 @@
         "h": 8,
         "w": 24,
         "x": 0,
-        "y": 34
+        "y": 39
       },
       "id": 15,
       "options": {
@@ -2350,6 +2803,156 @@
       "title": "Cable Modem State",
       "transparent": true,
       "type": "table"
+    },
+    {
+      "collapsed": false,
+      "datasource": null,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 47
+      },
+      "id": 42,
+      "panels": [],
+      "title": "IGP Process",
+      "type": "row"
+    },
+    {
+      "columns": [
+        {
+          "text": "Current",
+          "value": "current"
+        }
+      ],
+      "datasource": "InfluxDB-MDT",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "filterNull": false,
+      "fontSize": "100%",
+      "gridPos": {
+        "h": 5,
+        "w": 24,
+        "x": 0,
+        "y": 48
+      },
+      "id": 44,
+      "links": [],
+      "pageSize": null,
+      "scroll": true,
+      "showHeader": true,
+      "sort": {
+        "col": 1,
+        "desc": true
+      },
+      "styles": [
+        {
+          "align": "auto",
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "pattern": "Time",
+          "type": "date"
+        }
+      ],
+      "targets": [
+        {
+          "alias": "Neighbor Interface",
+          "groupBy": [],
+          "measurement": "Cisco-IOS-XE-ospf-oper:ospf-oper-data/ospf-state",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "A",
+          "resultFormat": "table",
+          "select": [
+            [
+              {
+                "params": [
+                  "ospf_instance/ospf_area/ospf_interface/name"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              },
+              {
+                "params": [
+                  "Interface"
+                ],
+                "type": "alias"
+              }
+            ],
+            [
+              {
+                "params": [
+                  "ospf_instance/ospf_area/ospf_interface/ospf_neighbor/state"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              },
+              {
+                "params": [
+                  "State"
+                ],
+                "type": "alias"
+              }
+            ],
+            [
+              {
+                "params": [
+                  "ospf_instance/ospf_area/ospf_interface/cost"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              },
+              {
+                "params": [
+                  "Cost"
+                ],
+                "type": "alias"
+              }
+            ],
+            [
+              {
+                "params": [
+                  "ospf_instance/ospf_area/ospf_interface/network_type"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              },
+              {
+                "params": [
+                  "Type"
+                ],
+                "type": "alias"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "source",
+              "operator": "=~",
+              "value": "/^$node$/"
+            }
+          ]
+        }
+      ],
+      "timeFrom": null,
+      "title": "Neighbors Interfaces",
+      "transform": "table",
+      "type": "table-old"
     }
   ],
   "refresh": "10s",
@@ -2412,5 +3015,5 @@
   "timezone": "",
   "title": "cBR8 Detail",
   "uid": "uv86hqnGk",
-  "version": 85
+  "version": 100
 }

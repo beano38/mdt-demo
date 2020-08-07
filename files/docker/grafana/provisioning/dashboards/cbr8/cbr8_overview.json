@@ -19,7 +19,7 @@
   "links": [],
   "panels": [
     {
-      "collapsed": true,
+      "collapsed": false,
       "datasource": null,
       "gridPos": {
         "h": 1,
@@ -538,7 +538,20 @@
             ]
           }
         },
-        "overrides": []
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Cisco-IOS-XE-docsis-oper:docsis-oper-data/cable-modem.sum"
+            },
+            "properties": [
+              {
+                "id": "links",
+                "value": []
+              }
+            ]
+          }
+        ]
       },
       "gridPos": {
         "h": 3,
@@ -1104,5 +1117,5 @@
   "timezone": "",
   "title": "cBR8 Overview",
   "uid": "xm7gmj4Gk",
-  "version": 24
+  "version": 27
 }

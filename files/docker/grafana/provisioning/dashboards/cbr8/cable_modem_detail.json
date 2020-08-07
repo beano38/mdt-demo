@@ -16,7 +16,7 @@
   "gnetId": null,
   "graphTooltip": 0,
   "id": 9,
-  "iteration": 1596564734850,
+  "iteration": 1596820641649,
   "links": [],
   "panels": [
     {
@@ -577,9 +577,9 @@
       {
         "allValue": null,
         "current": {
-          "selected": true,
-          "text": "00:18:68:9c:14:0d",
-          "value": "00:18:68:9c:14:0d"
+          "selected": false,
+          "text": "c8:fb:26:99:3d:ac",
+          "value": "c8:fb:26:99:3d:ac"
         },
         "datasource": "InfluxDB-MDT",
         "definition": "SHOW TAG VALUES FROM \"Cisco-IOS-XE-docsis-oper:docsis-oper-data/cable-modem\"  WITH KEY = \"mac_address\"",
@@ -650,7 +650,7 @@
             "value": "00:18:68:9c:11:1f"
           },
           {
-            "selected": true,
+            "selected": false,
             "text": "00:18:68:9c:14:0d",
             "value": "00:18:68:9c:14:0d"
           },
@@ -995,7 +995,7 @@
             "value": "c8:fb:26:99:36:04"
           },
           {
-            "selected": false,
+            "selected": true,
             "text": "c8:fb:26:99:3d:ac",
             "value": "c8:fb:26:99:3d:ac"
           },
@@ -1053,5 +1053,5 @@
   "timezone": "",
   "title": "Cable Modem Detail",
   "uid": "Bns54C4Gz",
-  "version": 13
+  "version": 14
 }

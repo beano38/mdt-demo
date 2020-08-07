@@ -16,7 +16,7 @@
   "gnetId": null,
   "graphTooltip": 0,
   "id": 10,
-  "iteration": 1596564772635,
+  "iteration": 1596820564433,
   "links": [
     {
       "icon": "external link",
@@ -354,5 +354,5 @@
   "timezone": "",
   "title": "Partial Mode Detail",
   "uid": "cCQFDjVGz",
-  "version": 12
+  "version": 13
 }
