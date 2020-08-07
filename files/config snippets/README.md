@@ -117,11 +117,11 @@ f81d.0f01.15b0  2/0/6    0    1      UP            SC-QAM    YES
 ```
 
 
-*increment the transaction ID by at least 1 for every new message
-*power cycle / reseting the modem will clear current failures
-*If you send CM-STATUS 1 (MDD timeout) you can "clear" that error with CM-STATUS 4 (MDD recovery)
-*If you send CM-STATUS 2 (QAM failure) you can "clear" that error with CM-STATUS 5 (QAM recovery)
-*Channels will first move to DOWN_PENDING on failures or UP_PENDING on recoveries for "cable rf-change-dampen-time" seconds (default 30) then change to DOWN or UP
-*You can simulate failures / recoveries for multiple channels
-*It isn’t a valid condition to simulate failures / recoveries for the primary channel
-*The downstream channel ID always needs to be 2 hex digits (i.e. 15 = 0F, 16 = 10). Convert the number in the "CH ID" column of the "wide rcs" output to hex, not the "RF" channel number
+* increment the transaction ID by at least 1 for every new message
+* power cycle / reseting the modem will clear current failures
+* If you send CM-STATUS 1 (MDD timeout) you can "clear" that error with CM-STATUS 4 (MDD recovery)
+* If you send CM-STATUS 2 (QAM failure) you can "clear" that error with CM-STATUS 5 (QAM recovery)
+* Channels will first move to DOWN_PENDING on failures or UP_PENDING on recoveries for "cable rf-change-dampen-time" seconds (default 30) then change to DOWN or UP
+* You can simulate failures / recoveries for multiple channels
+* It isn’t a valid condition to simulate failures / recoveries for the primary channel
+* The downstream channel ID always needs to be 2 hex digits (i.e. 15 = 0F, 16 = 10). Convert the number in the "CH ID" column of the "wide rcs" output to hex, not the "RF" channel number
