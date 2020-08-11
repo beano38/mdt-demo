@@ -1,0 +1,79 @@
+version: "3.7"
+
+services:
+
+  grafana:
+    image: grafana/grafana
+    container_name: grafana
+    ports:
+      - 3000:3000
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ${DOCKERDIR}/grafana/data:/var/lib/grafana
+      - ${DOCKERDIR}/grafana/log:/var/log/grafana
+      - ${DOCKERDIR}/grafana/provisioning:/etc/grafana/provisioning
+    restart: always
+    user: "1000"
+
+  influxdb:
+    image: influxdb
+    container_name: influxdb
+    ports:
+      - 8086:8086
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ${DOCKERDIR}/influxdb/data:/var/lib/influxdb
+    environment:
+      - INFLUXDB_DB=influxdb
+      - INFLUXDB_USER=admin
+      - INFLUXDB_PASSWORD=influxdb
+    restart: always
+    user: "1000"
+
+  telegraf:
+    image: telegraf
+    container_name: telegraf
+    hostname: ubuntu_host
+    ports:
+      - 57000:57000
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ${DOCKERDIR}/telegraf/telegraf.conf:/etc/telegraf/telegraf.conf:ro
+      - /sys:/rootfs/sys:ro
+      - /proc:/rootfs/proc:ro
+      - /etc:/rootfs/etc:ro
+    environment:
+      - HOST_PROC=rootfs/proc
+      - HOST_SYS=rootfs/sys
+      - HOST_ETC=/rootfs/etc
+    depends_on:
+      - influxdb
+    restart: always
+    user: "1000"
+
+  kapacitor:
+    image: kapacitor
+    container_name: kapacitor
+    ports:
+      - 9092:9092
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ${DOCKERDIR}/kapacitor/data:/var/lib/kapacitor
+      - ${DOCKERDIR}/kapacitor/config:/etc/kapacitor
+    restart: always
+    user: "1000"
+
+  chronograf:
+    image: chronograf
+    container_name: chronograf
+    ports:
+      - 8888:8888
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ${DOCKERDIR}/chronograf/data:/var/lib/chronograf/
+    depends_on:
+      - kapacitor
+      - influxdb
+      - telegraf
+    restart: always
+    user: "1000"
