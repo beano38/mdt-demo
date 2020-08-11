@@ -1,6 +1,12 @@
 Make sure to modify the receiver IP address and port.
 
 
+***************************** global config *****************************
+
+config t
+ netconf-yang
+
+
 ***************************** Config *****************************
 
 telemetry ietf subscription 101
