@@ -2,7 +2,7 @@
 - hosts: docker
   vars:
     - docker_users:
-      - vagrant
+      - "{{ ansible_env.USER }}"
 
   pre_tasks:
     - name: Set permenant environment variables
@@ -12,14 +12,14 @@
         regexp: "{{item.regexp}}"
         line: "{{item.line}}"
       with_items:
-        - { regexp: '^PUID=', line: 'PUID=1000' }
+        - { regexp: '^PUID=', line: 'PUID={{ ansible_env.USER }}' }
         - { regexp: '^PGID=', line: 'PGID=998' }
         - { regexp: '^DOCKERDIR=', line: 'DOCKERDIR="{{ ansible_env.HOME }}/docker"' }
         - { regexp: '^TZ=', line: 'TZ="America/New York"' }
 
     - name: Update package cache and install APT packages
       become: true
-      apt:
+      package:
         name: [ python3-pip ]
         state: present
         update_cache: true

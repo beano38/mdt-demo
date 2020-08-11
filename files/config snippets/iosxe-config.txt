@@ -56,6 +56,15 @@ telemetry ietf subscription 202
  receiver ip address 10.89.188.28 57000 protocol grpc-tcp
 
 
+telemetry ietf subscription 300
+ encoding encode-kvgpb
+ filter xpath /DOCS-IF31-MIB:DOCS-IF31-MIB/docsIf31RxChStatusTable
+ source-vrf Mgmt-intf
+ stream yang-push
+ update-policy periodic 144000
+ receiver ip address 10.89.188.28 57000 protocol grpc-tcp
+
+
 no telemetry ietf subscription 101
 no telemetry ietf subscription 102
 no telemetry ietf subscription 200

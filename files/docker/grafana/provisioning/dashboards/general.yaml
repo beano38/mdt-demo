@@ -9,6 +9,7 @@ providers:
    type: file
    editable: true
    disableDeletion: false
+   allowUiUpdates: true
    options:
      datasource: InfluxDB-Telegraf
 #     prefix: InfluxDB

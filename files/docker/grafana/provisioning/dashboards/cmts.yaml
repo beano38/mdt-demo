@@ -8,6 +8,7 @@ providers:
    folder: 'cBR8'
    type: file
    editable: true
+   allowUiUpdates: true
    disableDeletion: false
    options:
      datasource: InfluxDB-MDT

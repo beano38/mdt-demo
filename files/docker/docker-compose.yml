@@ -53,27 +53,27 @@ services:
     restart: always
     user: "0"
 
-    kapacitor:
-      image: kapacitor
-      container_name: kapacitor
-      ports:
-        - 9092:9092
-        volumes:
-        - /etc/localtime:/etc/localtime:ro
-        - ${DOCKERDIR}/kapacitor/data:/var/lib/kapacitor
-        - ${DOCKERDIR}/kapacitor/config:/etc/kapacitor
-      restart: always
+  kapacitor:
+    image: kapacitor
+    container_name: kapacitor
+    ports:
+      - 9092:9092
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ${DOCKERDIR}/kapacitor/data:/var/lib/kapacitor
+      - ${DOCKERDIR}/kapacitor/config:/etc/kapacitor
+    restart: always
 
-    chronograf:
-      image: chronograf
-      container_name: chronograf
-      ports:
-        - 8888:8888
-      volumes:
-        - /etc/localtime:/etc/localtime:ro
-        - ${DOCKERDIR}/chronograf/data:/var/lib/chronograf/
-      depends_on:
-        - kapacitor
-        - influxdb
-        - telegraf
-      restart: always
+  chronograf:
+    image: chronograf
+    container_name: chronograf
+    ports:
+      - 8888:8888
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ${DOCKERDIR}/chronograf/data:/var/lib/chronograf/
+    depends_on:
+      - kapacitor
+      - influxdb
+      - telegraf
+    restart: always
