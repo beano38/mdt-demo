@@ -48,8 +48,9 @@ git clone https://github.com/beano38/mdt-demo.git
 
 
 
-********* MDT Stack ****************
+********* Set your environment  ****************
 
 add DOCKERDIR to your environment - /etc/environment
+
 DOCKERDIR="/home/users/<userid>/docker"
 
