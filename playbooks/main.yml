@@ -43,16 +43,5 @@
         src: ../files/docker
         dest: "{{ ansible_env.HOME }}"
 
-    - name: Start containers
-      command: docker-compose up -d
-      args:
-        chdir: "{{ ansible_env.HOME }}/docker"
-
-    # - name: Start containers using the docker-compose file
-    #   docker_compose:
-    #     project_src: "{{ ansible_env.HOME }}/docker"
-    #   register: output
-
     # - debug:
-    #     var:
-    #       output
+        # msg: Log out of server and back in again then run 'docker-compose -f {{ ansible_env.HOME/docker/docker-compose.yml }} up -d'
