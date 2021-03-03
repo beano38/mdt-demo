@@ -16,7 +16,7 @@ services:
     user: "0"
 
   influxdb:
-    image: influxdb
+    image: influxdb:1.8
     container_name: influxdb
     ports:
       - 8086:8086
