@@ -54,3 +54,4 @@ add DOCKERDIR to your environment - /etc/environment
 
 DOCKERDIR="/home/users/<userid>/docker"
 
+Use Ubuntu
