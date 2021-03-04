@@ -15,7 +15,7 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 0,
-  "id": 8,
+  "id": 4,
   "links": [],
   "panels": [
     {
@@ -69,9 +69,10 @@
           "fields": "",
           "values": false
         },
+        "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "7.1.0",
+      "pluginVersion": "7.4.3",
       "targets": [
         {
           "groupBy": [],
@@ -139,9 +140,10 @@
           "fields": "",
           "values": false
         },
+        "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "7.1.0",
+      "pluginVersion": "7.4.3",
       "targets": [
         {
           "groupBy": [],
@@ -209,9 +211,10 @@
           "fields": "",
           "values": false
         },
+        "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "7.1.0",
+      "pluginVersion": "7.4.3",
       "targets": [
         {
           "groupBy": [],
@@ -279,9 +282,10 @@
           "fields": "",
           "values": false
         },
+        "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "7.1.0",
+      "pluginVersion": "7.4.3",
       "targets": [
         {
           "groupBy": [],
@@ -349,9 +353,10 @@
           "fields": "",
           "values": false
         },
+        "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "7.1.0",
+      "pluginVersion": "7.4.3",
       "targets": [
         {
           "groupBy": [],
@@ -419,9 +424,10 @@
           "fields": "",
           "values": false
         },
+        "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "7.1.0",
+      "pluginVersion": "7.4.3",
       "targets": [
         {
           "groupBy": [],
@@ -489,9 +495,10 @@
           "fields": "",
           "values": false
         },
+        "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "7.1.0",
+      "pluginVersion": "7.4.3",
       "targets": [
         {
           "groupBy": [],
@@ -528,12 +535,21 @@
         "defaults": {
           "custom": {},
           "mappings": [],
+          "noValue": "0",
           "thresholds": {
             "mode": "absolute",
             "steps": [
               {
-                "color": "red",
+                "color": "green",
                 "value": null
+              },
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 1
               }
             ]
           }
@@ -572,9 +588,10 @@
           "fields": "",
           "values": false
         },
+        "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "7.1.0",
+      "pluginVersion": "7.4.3",
       "targets": [
         {
           "groupBy": [],
@@ -621,19 +638,9 @@
       "fieldConfig": {
         "defaults": {
           "custom": {},
-          "mappings": [],
           "thresholds": {
             "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
+            "steps": []
           }
         },
         "overrides": []
@@ -661,8 +668,11 @@
       "lines": false,
       "linewidth": 1,
       "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
       "percentage": false,
-      "pluginVersion": "7.1.0",
+      "pluginVersion": "7.4.3",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -911,7 +921,8 @@
       "fieldConfig": {
         "defaults": {
           "custom": {
-            "align": "center"
+            "align": "center",
+            "filterable": false
           },
           "links": [],
           "mappings": [],
@@ -941,7 +952,7 @@
                 "value": [
                   {
                     "title": "cBR8 Details",
-                    "url": "http://10.89.188.28:3000/d/uv86hqnGk/cbr8-summary?orgId=1&refresh=10s"
+                    "url": "http://172.28.128.10:3000/d/uv86hqnGk/cbr8-detail?orgId=1&refresh=10s&var-node=rr-lwr-cbr8"
                   }
                 ]
               },
@@ -969,7 +980,7 @@
           }
         ]
       },
-      "pluginVersion": "7.1.0",
+      "pluginVersion": "7.4.3",
       "targets": [
         {
           "alias": "[[tag_source]]",
@@ -1086,12 +1097,24 @@
       "timeFrom": null,
       "timeShift": null,
       "title": "Summary by cBR8",
+      "transformations": [
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "Time": true
+            },
+            "indexByName": {},
+            "renameByName": {}
+          }
+        }
+      ],
       "transparent": true,
       "type": "table"
     }
   ],
   "refresh": "10s",
-  "schemaVersion": 26,
+  "schemaVersion": 27,
   "style": "dark",
   "tags": [],
   "templating": {
@@ -1117,5 +1140,5 @@
   "timezone": "",
   "title": "cBR8 Overview",
   "uid": "xm7gmj4Gk",
-  "version": 27
+  "version": 5
 }

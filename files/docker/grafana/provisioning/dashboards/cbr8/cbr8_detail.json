@@ -15,8 +15,8 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 0,
-  "id": 7,
-  "iteration": 1596820538569,
+  "id": 3,
+  "iteration": 1614864070167,
   "links": [],
   "panels": [
     {
@@ -81,9 +81,10 @@
           "values": false
         },
         "showThresholdLabels": false,
-        "showThresholdMarkers": true
+        "showThresholdMarkers": true,
+        "text": {}
       },
-      "pluginVersion": "7.1.0",
+      "pluginVersion": "7.4.3",
       "targets": [
         {
           "groupBy": [
@@ -175,8 +176,11 @@
       "lines": true,
       "linewidth": 1,
       "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
       "percentage": false,
-      "pluginVersion": "7.1.0",
+      "pluginVersion": "7.4.3",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -223,8 +227,8 @@
           "tags": [
             {
               "key": "source",
-              "operator": "=",
-              "value": "10.90.148.205"
+              "operator": "=~",
+              "value": "/^$node$/"
             },
             {
               "condition": "AND",
@@ -272,8 +276,8 @@
           "tags": [
             {
               "key": "source",
-              "operator": "=",
-              "value": "10.90.148.205"
+              "operator": "=~",
+              "value": "/^$node$/"
             },
             {
               "condition": "AND",
@@ -373,9 +377,10 @@
           "values": false
         },
         "showThresholdLabels": false,
-        "showThresholdMarkers": true
+        "showThresholdMarkers": true,
+        "text": {}
       },
-      "pluginVersion": "7.1.0",
+      "pluginVersion": "7.4.3",
       "targets": [
         {
           "groupBy": [],
@@ -463,8 +468,11 @@
       "lines": true,
       "linewidth": 1,
       "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
       "percentage": false,
-      "pluginVersion": "7.1.0",
+      "pluginVersion": "7.4.3",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -1025,9 +1033,10 @@
           "fields": "",
           "values": false
         },
+        "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "7.1.0",
+      "pluginVersion": "7.4.3",
       "targets": [
         {
           "groupBy": [],
@@ -1101,9 +1110,10 @@
           "fields": "",
           "values": false
         },
+        "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "7.1.0",
+      "pluginVersion": "7.4.3",
       "targets": [
         {
           "groupBy": [],
@@ -1177,9 +1187,10 @@
           "fields": "",
           "values": false
         },
+        "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "7.1.0",
+      "pluginVersion": "7.4.3",
       "targets": [
         {
           "groupBy": [],
@@ -1253,9 +1264,10 @@
           "fields": "",
           "values": false
         },
+        "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "7.1.0",
+      "pluginVersion": "7.4.3",
       "targets": [
         {
           "groupBy": [],
@@ -1329,9 +1341,10 @@
           "fields": "",
           "values": false
         },
+        "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "7.1.0",
+      "pluginVersion": "7.4.3",
       "targets": [
         {
           "groupBy": [],
@@ -1405,9 +1418,10 @@
           "fields": "",
           "values": false
         },
+        "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "7.1.0",
+      "pluginVersion": "7.4.3",
       "targets": [
         {
           "groupBy": [],
@@ -1487,9 +1501,10 @@
           "fields": "",
           "values": false
         },
+        "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "7.1.0",
+      "pluginVersion": "7.4.3",
       "targets": [
         {
           "groupBy": [],
@@ -1565,7 +1580,7 @@
                 "value": [
                   {
                     "title": "Partial Mode Detail",
-                    "url": "http://10.89.188.28:3000/d/cCQFDjVGz/partial-mode-detail?orgId=1"
+                    "url": "http://172.28.128.10:3000/d/cCQFDjVGz/partial-mode-detail?orgId=1"
                   }
                 ]
               }
@@ -1592,9 +1607,10 @@
           "fields": "",
           "values": false
         },
+        "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "7.1.0",
+      "pluginVersion": "7.4.3",
       "targets": [
         {
           "groupBy": [],
@@ -1648,19 +1664,9 @@
       "fieldConfig": {
         "defaults": {
           "custom": {},
-          "mappings": [],
           "thresholds": {
             "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
+            "steps": []
           }
         },
         "overrides": []
@@ -1688,8 +1694,11 @@
       "lines": false,
       "linewidth": 1,
       "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
       "percentage": false,
-      "pluginVersion": "7.1.0",
+      "pluginVersion": "7.4.3",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -1962,7 +1971,8 @@
       "fieldConfig": {
         "defaults": {
           "custom": {
-            "align": "center"
+            "align": "center",
+            "filterable": false
           },
           "mappings": [],
           "thresholds": {
@@ -1996,7 +2006,7 @@
                   {
                     "targetBlank": false,
                     "title": "Interface Detail",
-                    "url": "http://10.89.188.28:3000/d/3rjav94rv/service-group-detail?orgId=1&refresh=10s&var-node=${node}&var-sg=${__data.fields[cm_if_summary_totals/interface]}"
+                    "url": "http://172.28.128.10:3000/d/3rjav94rv/service-group-detail?orgId=1&refresh=10s&var-node=${node}&var-sg=${__data.fields[cm_if_summary_totals/interface]}"
                   }
                 ]
               }
@@ -2020,7 +2030,7 @@
           }
         ]
       },
-      "pluginVersion": "7.1.0",
+      "pluginVersion": "7.4.3",
       "targets": [
         {
           "alias": "[[tag_cm_if_summary_totals/interface]] Online",
@@ -2215,411 +2225,20 @@
       "timeFrom": null,
       "timeShift": null,
       "title": "Status by Service Group",
-      "transparent": true,
-      "type": "table"
-    },
-    {
-      "collapsed": true,
-      "datasource": null,
-      "gridPos": {
-        "h": 1,
-        "w": 24,
-        "x": 0,
-        "y": 37
-      },
-      "id": 28,
-      "panels": [
+      "transformations": [
         {
-          "aliasColors": {},
-          "bars": false,
-          "dashLength": 10,
-          "dashes": false,
-          "datasource": "InfluxDB-MDT",
-          "fieldConfig": {
-            "defaults": {
-              "custom": {}
-            },
-            "overrides": []
-          },
-          "fill": 1,
-          "fillGradient": 0,
-          "gridPos": {
-            "h": 7,
-            "w": 24,
-            "x": 0,
-            "y": 46
-          },
-          "hiddenSeries": false,
-          "id": 31,
-          "legend": {
-            "alignAsTable": false,
-            "avg": false,
-            "current": false,
-            "hideZero": true,
-            "max": false,
-            "min": false,
-            "rightSide": true,
-            "show": true,
-            "total": false,
-            "values": false
-          },
-          "lines": true,
-          "linewidth": 1,
-          "nullPointMode": "null",
-          "percentage": false,
-          "pluginVersion": "7.1.0",
-          "pointradius": 2,
-          "points": false,
-          "renderer": "flot",
-          "seriesOverrides": [],
-          "spaceLength": 10,
-          "stack": false,
-          "steppedLine": false,
-          "targets": [
-            {
-              "alias": "[[tag_name]] transmit",
-              "groupBy": [
-                {
-                  "params": [
-                    "$__interval"
-                  ],
-                  "type": "time"
-                },
-                {
-                  "params": [
-                    "name"
-                  ],
-                  "type": "tag"
-                },
-                {
-                  "params": [
-                    "none"
-                  ],
-                  "type": "fill"
-                }
-              ],
-              "measurement": "Cisco-IOS-XE-interfaces-oper:interfaces/interface/statistics",
-              "orderByTime": "ASC",
-              "policy": "default",
-              "query": "SELECT distinct(\"tx_kbps\") FROM \"Cisco-IOS-XE-interfaces-oper:interfaces/interface/statistics\" WHERE (\"source\" =~ /^$node$/ AND \"name\" =~ /^TenGigabitEthernet[01236789].*$/) AND $timeFilter GROUP BY time($__interval), \"name\" fill(none)",
-              "rawQuery": true,
-              "refId": "A",
-              "resultFormat": "time_series",
-              "select": [
-                [
-                  {
-                    "params": [
-                      "tx_kbps"
-                    ],
-                    "type": "field"
-                  },
-                  {
-                    "params": [],
-                    "type": "distinct"
-                  }
-                ]
-              ],
-              "tags": [
-                {
-                  "key": "source",
-                  "operator": "=~",
-                  "value": "/^$cBR8$/"
-                },
-                {
-                  "condition": "AND",
-                  "key": "name",
-                  "operator": "=",
-                  "value": "TenGigabitEthernet4/1/0"
-                }
-              ]
-            },
-            {
-              "alias": "[[tag_name]] receive",
-              "groupBy": [
-                {
-                  "params": [
-                    "$__interval"
-                  ],
-                  "type": "time"
-                },
-                {
-                  "params": [
-                    "name"
-                  ],
-                  "type": "tag"
-                },
-                {
-                  "params": [
-                    "none"
-                  ],
-                  "type": "fill"
-                }
-              ],
-              "measurement": "Cisco-IOS-XE-interfaces-oper:interfaces/interface/statistics",
-              "orderByTime": "ASC",
-              "policy": "default",
-              "query": "SELECT distinct(\"rx_kbps\") FROM \"Cisco-IOS-XE-interfaces-oper:interfaces/interface/statistics\" WHERE (\"source\" =~ /^$node$/ AND \"name\" =~ /^TenGigabitEthernet[01236789].*$/) AND $timeFilter GROUP BY time($__interval), \"name\" fill(none)",
-              "rawQuery": true,
-              "refId": "B",
-              "resultFormat": "time_series",
-              "select": [
-                [
-                  {
-                    "params": [
-                      "rx_kbps"
-                    ],
-                    "type": "field"
-                  },
-                  {
-                    "params": [],
-                    "type": "distinct"
-                  }
-                ]
-              ],
-              "tags": [
-                {
-                  "key": "source",
-                  "operator": "=~",
-                  "value": "/^$cBR8$/"
-                },
-                {
-                  "condition": "AND",
-                  "key": "name",
-                  "operator": "=",
-                  "value": "TenGigabitEthernet4/1/0"
-                }
-              ]
-            }
-          ],
-          "thresholds": [],
-          "timeFrom": null,
-          "timeRegions": [],
-          "timeShift": null,
-          "title": "DPIC Interfaces",
-          "tooltip": {
-            "shared": true,
-            "sort": 0,
-            "value_type": "individual"
-          },
-          "transparent": true,
-          "type": "graph",
-          "xaxis": {
-            "buckets": null,
-            "mode": "time",
-            "name": null,
-            "show": true,
-            "values": []
-          },
-          "yaxes": [
-            {
-              "format": "Kbits",
-              "label": null,
-              "logBase": 1,
-              "max": null,
-              "min": null,
-              "show": true
-            },
-            {
-              "format": "short",
-              "label": null,
-              "logBase": 1,
-              "max": null,
-              "min": null,
-              "show": true
-            }
-          ],
-          "yaxis": {
-            "align": false,
-            "alignLevel": null
-          }
-        },
-        {
-          "datasource": "InfluxDB-MDT",
-          "fieldConfig": {
-            "defaults": {
-              "custom": {
-                "align": "center"
-              },
-              "mappings": [
-                {
-                  "from": "",
-                  "id": 0,
-                  "text": "",
-                  "to": "",
-                  "type": 1
-                }
-              ],
-              "thresholds": {
-                "mode": "absolute",
-                "steps": [
-                  {
-                    "color": "green",
-                    "value": null
-                  },
-                  {
-                    "color": "red",
-                    "value": 80
-                  }
-                ]
-              }
-            },
-            "overrides": [
-              {
-                "matcher": {
-                  "id": "byName",
-                  "options": "id"
-                },
-                "properties": [
-                  {
-                    "id": "displayName",
-                    "value": "Mac Address"
-                  }
-                ]
-              }
-            ]
-          },
-          "gridPos": {
-            "h": 8,
-            "w": 24,
-            "x": 0,
-            "y": 53
-          },
-          "id": 26,
+          "id": "organize",
           "options": {
-            "showHeader": true,
-            "sortBy": [
-              {
-                "desc": false,
-                "displayName": "Clock Synced"
-              }
-            ]
-          },
-          "pluginVersion": "7.1.0",
-          "targets": [
-            {
-              "groupBy": [
-                {
-                  "params": [
-                    "id"
-                  ],
-                  "type": "tag"
-                }
-              ],
-              "measurement": "Cisco-IOS-XE-docsis-oper:docsis-oper-data/cable-rpd-state",
-              "orderByTime": "ASC",
-              "policy": "default",
-              "refId": "A",
-              "resultFormat": "table",
-              "select": [
-                [
-                  {
-                    "params": [
-                      "name"
-                    ],
-                    "type": "field"
-                  },
-                  {
-                    "params": [],
-                    "type": "last"
-                  },
-                  {
-                    "params": [
-                      "RPD Name"
-                    ],
-                    "type": "alias"
-                  }
-                ],
-                [
-                  {
-                    "params": [
-                      "ip_addr"
-                    ],
-                    "type": "field"
-                  },
-                  {
-                    "params": [],
-                    "type": "last"
-                  },
-                  {
-                    "params": [
-                      "IP Address"
-                    ],
-                    "type": "alias"
-                  }
-                ],
-                [
-                  {
-                    "params": [
-                      "state"
-                    ],
-                    "type": "field"
-                  },
-                  {
-                    "params": [],
-                    "type": "last"
-                  },
-                  {
-                    "params": [
-                      "State"
-                    ],
-                    "type": "alias"
-                  }
-                ],
-                [
-                  {
-                    "params": [
-                      "clock_synced"
-                    ],
-                    "type": "field"
-                  },
-                  {
-                    "params": [],
-                    "type": "last"
-                  },
-                  {
-                    "params": [
-                      "Clock Synced"
-                    ],
-                    "type": "alias"
-                  }
-                ],
-                [
-                  {
-                    "params": [
-                      "core_role"
-                    ],
-                    "type": "field"
-                  },
-                  {
-                    "params": [],
-                    "type": "last"
-                  },
-                  {
-                    "params": [
-                      "Core Role"
-                    ],
-                    "type": "alias"
-                  }
-                ]
-              ],
-              "tags": [
-                {
-                  "key": "source",
-                  "operator": "=~",
-                  "value": "/^$node$/"
-                }
-              ]
-            }
-          ],
-          "timeFrom": null,
-          "timeShift": null,
-          "title": "RPD Detail",
-          "transparent": true,
-          "type": "table"
+            "excludeByName": {
+              "Time": true
+            },
+            "indexByName": {},
+            "renameByName": {}
+          }
         }
       ],
-      "title": "Remote PHY Info",
-      "type": "row"
+      "transparent": true,
+      "type": "table"
     },
     {
       "collapsed": false,
@@ -2628,7 +2247,426 @@
         "h": 1,
         "w": 24,
         "x": 0,
+        "y": 37
+      },
+      "id": 28,
+      "panels": [],
+      "title": "Remote PHY Info",
+      "type": "row"
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "InfluxDB-MDT",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 7,
+        "w": 24,
+        "x": 0,
         "y": 38
+      },
+      "hiddenSeries": false,
+      "id": 31,
+      "legend": {
+        "alignAsTable": false,
+        "avg": false,
+        "current": false,
+        "hideZero": true,
+        "max": false,
+        "min": false,
+        "rightSide": true,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "7.4.3",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "alias": "[[tag_name]] transmit",
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "name"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "none"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "Cisco-IOS-XE-interfaces-oper:interfaces/interface/statistics",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT distinct(\"tx_kbps\") FROM \"Cisco-IOS-XE-interfaces-oper:interfaces/interface/statistics\" WHERE (\"source\" =~ /^$node$/ AND \"name\" =~ /^TenGigabitEthernet[01236789].*$/) AND $timeFilter GROUP BY time($__interval), \"name\" fill(none)",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "tx_kbps"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "distinct"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "source",
+              "operator": "=~",
+              "value": "/^$cBR8$/"
+            },
+            {
+              "condition": "AND",
+              "key": "name",
+              "operator": "=",
+              "value": "TenGigabitEthernet4/1/0"
+            }
+          ]
+        },
+        {
+          "alias": "[[tag_name]] receive",
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "name"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "none"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "Cisco-IOS-XE-interfaces-oper:interfaces/interface/statistics",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT distinct(\"rx_kbps\") FROM \"Cisco-IOS-XE-interfaces-oper:interfaces/interface/statistics\" WHERE (\"source\" =~ /^$node$/ AND \"name\" =~ /^TenGigabitEthernet[01236789].*$/) AND $timeFilter GROUP BY time($__interval), \"name\" fill(none)",
+          "rawQuery": true,
+          "refId": "B",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "rx_kbps"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "distinct"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "source",
+              "operator": "=~",
+              "value": "/^$cBR8$/"
+            },
+            {
+              "condition": "AND",
+              "key": "name",
+              "operator": "=",
+              "value": "TenGigabitEthernet4/1/0"
+            }
+          ]
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "DPIC Interfaces",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "transparent": true,
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "Kbits",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "datasource": "InfluxDB-MDT",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {
+            "align": "center",
+            "filterable": false
+          },
+          "mappings": [
+            {
+              "from": "",
+              "id": 0,
+              "text": "",
+              "to": "",
+              "type": 1
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "id"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Mac Address"
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 24,
+        "x": 0,
+        "y": 45
+      },
+      "id": 26,
+      "options": {
+        "showHeader": true,
+        "sortBy": [
+          {
+            "desc": false,
+            "displayName": "Clock Synced"
+          }
+        ]
+      },
+      "pluginVersion": "7.4.3",
+      "targets": [
+        {
+          "groupBy": [
+            {
+              "params": [
+                "id"
+              ],
+              "type": "tag"
+            }
+          ],
+          "measurement": "Cisco-IOS-XE-docsis-oper:docsis-oper-data/cable-rpd-state",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "A",
+          "resultFormat": "table",
+          "select": [
+            [
+              {
+                "params": [
+                  "name"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              },
+              {
+                "params": [
+                  "RPD Name"
+                ],
+                "type": "alias"
+              }
+            ],
+            [
+              {
+                "params": [
+                  "ip_addr"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              },
+              {
+                "params": [
+                  "IP Address"
+                ],
+                "type": "alias"
+              }
+            ],
+            [
+              {
+                "params": [
+                  "state"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              },
+              {
+                "params": [
+                  "State"
+                ],
+                "type": "alias"
+              }
+            ],
+            [
+              {
+                "params": [
+                  "clock_synced"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              },
+              {
+                "params": [
+                  "Clock Synced"
+                ],
+                "type": "alias"
+              }
+            ],
+            [
+              {
+                "params": [
+                  "core_role"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              },
+              {
+                "params": [
+                  "Core Role"
+                ],
+                "type": "alias"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "source",
+              "operator": "=~",
+              "value": "/^$node$/"
+            }
+          ]
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "RPD Detail",
+      "transformations": [
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "Time": true,
+              "id": false
+            },
+            "indexByName": {},
+            "renameByName": {}
+          }
+        }
+      ],
+      "transparent": true,
+      "type": "table"
+    },
+    {
+      "collapsed": false,
+      "datasource": null,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 53
       },
       "id": 14,
       "panels": [],
@@ -2640,7 +2678,8 @@
       "fieldConfig": {
         "defaults": {
           "custom": {
-            "align": null
+            "align": null,
+            "filterable": false
           },
           "mappings": [],
           "thresholds": {
@@ -2669,7 +2708,7 @@
                 "value": [
                   {
                     "title": "Cable Modem Detail",
-                    "url": "http://10.89.188.28:3000/d/Bns54C4Gz/cable-modem-detail-copy?orgId=1&var-node=${node}&var-sg_id=C1%2F0%2F2&var-mac=${__data.fields[mac_address]}&from=now-30m&to=now"
+                    "url": "http://172.28.128.10:3000/d/Bns54C4Gz/cable-modem-detail-copy?orgId=1&var-node=${node}&var-sg_id=C1%2F0%2F2&var-mac=${__data.fields[mac_address]}&from=now-30m&to=now"
                   }
                 ]
               },
@@ -2685,7 +2724,7 @@
         "h": 8,
         "w": 24,
         "x": 0,
-        "y": 39
+        "y": 54
       },
       "id": 15,
       "options": {
@@ -2694,11 +2733,11 @@
         "sortBy": [
           {
             "desc": false,
-            "displayName": "mac_address"
+            "displayName": "DOCSIS Version"
           }
         ]
       },
-      "pluginVersion": "7.1.0",
+      "pluginVersion": "7.4.3",
       "targets": [
         {
           "alias": "[[tag_mac_address]]",
@@ -2801,6 +2840,18 @@
       "timeFrom": null,
       "timeShift": null,
       "title": "Cable Modem State",
+      "transformations": [
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "Time": true
+            },
+            "indexByName": {},
+            "renameByName": {}
+          }
+        }
+      ],
       "transparent": true,
       "type": "table"
     },
@@ -2811,7 +2862,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 47
+        "y": 62
       },
       "id": 42,
       "panels": [],
@@ -2821,6 +2872,7 @@
     {
       "columns": [
         {
+          "$$hashKey": "object:1312",
           "text": "Current",
           "value": "current"
         }
@@ -2838,7 +2890,7 @@
         "h": 5,
         "w": 24,
         "x": 0,
-        "y": 48
+        "y": 63
       },
       "id": 44,
       "links": [],
@@ -2952,11 +3004,23 @@
       "timeFrom": null,
       "title": "Neighbors Interfaces",
       "transform": "table",
+      "transformations": [
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "Time": true
+            },
+            "indexByName": {},
+            "renameByName": {}
+          }
+        }
+      ],
       "type": "table-old"
     }
   ],
   "refresh": "10s",
-  "schemaVersion": 26,
+  "schemaVersion": 27,
   "style": "dark",
   "tags": [],
   "templating": {
@@ -2964,12 +3028,14 @@
       {
         "allValue": null,
         "current": {
-          "selected": true,
-          "text": "10.90.148.205",
-          "value": "10.90.148.205"
+          "selected": false,
+          "text": "rr-lwr-cbr8",
+          "value": "rr-lwr-cbr8"
         },
         "datasource": "InfluxDB-MDT",
         "definition": "SHOW TAG VALUES FROM \"Cisco-IOS-XE-docsis-oper:docsis-oper-data/cable-modem\" WITH KEY=\"source\"",
+        "description": null,
+        "error": null,
         "hide": 0,
         "includeAll": false,
         "label": "cBR8",
@@ -2978,8 +3044,8 @@
         "options": [
           {
             "selected": true,
-            "text": "10.90.148.205",
-            "value": "10.90.148.205"
+            "text": "rr-lwr-cbr8",
+            "value": "rr-lwr-cbr8"
           }
         ],
         "query": "SHOW TAG VALUES FROM \"Cisco-IOS-XE-docsis-oper:docsis-oper-data/cable-modem\" WITH KEY=\"source\"",
@@ -3015,5 +3081,5 @@
   "timezone": "",
   "title": "cBR8 Detail",
   "uid": "uv86hqnGk",
-  "version": 100
+  "version": 7
 }

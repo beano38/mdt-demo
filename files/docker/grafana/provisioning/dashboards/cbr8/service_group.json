@@ -15,8 +15,8 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 0,
-  "id": 11,
-  "iteration": 1596820595617,
+  "id": 6,
+  "iteration": 1614864101079,
   "links": [],
   "panels": [
     {
@@ -70,9 +70,10 @@
           "fields": "",
           "values": false
         },
+        "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "7.1.0",
+      "pluginVersion": "7.4.3",
       "targets": [
         {
           "groupBy": [],
@@ -152,9 +153,10 @@
           "fields": "",
           "values": false
         },
+        "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "7.1.0",
+      "pluginVersion": "7.4.3",
       "targets": [
         {
           "groupBy": [],
@@ -234,9 +236,10 @@
           "fields": "",
           "values": false
         },
+        "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "7.1.0",
+      "pluginVersion": "7.4.3",
       "targets": [
         {
           "groupBy": [],
@@ -316,9 +319,10 @@
           "fields": "",
           "values": false
         },
+        "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "7.1.0",
+      "pluginVersion": "7.4.3",
       "targets": [
         {
           "groupBy": [],
@@ -398,9 +402,10 @@
           "fields": "",
           "values": false
         },
+        "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "7.1.0",
+      "pluginVersion": "7.4.3",
       "targets": [
         {
           "groupBy": [],
@@ -480,9 +485,10 @@
           "fields": "",
           "values": false
         },
+        "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "7.1.0",
+      "pluginVersion": "7.4.3",
       "targets": [
         {
           "groupBy": [],
@@ -568,9 +574,10 @@
           "fields": "",
           "values": false
         },
+        "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "7.1.0",
+      "pluginVersion": "7.4.3",
       "targets": [
         {
           "groupBy": [],
@@ -630,19 +637,9 @@
       "fieldConfig": {
         "defaults": {
           "custom": {},
-          "mappings": [],
           "thresholds": {
             "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
+            "steps": []
           }
         },
         "overrides": []
@@ -670,8 +667,11 @@
       "lines": false,
       "linewidth": 1,
       "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
       "percentage": false,
-      "pluginVersion": "7.1.0",
+      "pluginVersion": "7.4.3",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -1007,7 +1007,7 @@
     }
   ],
   "refresh": "10s",
-  "schemaVersion": 26,
+  "schemaVersion": 27,
   "style": "dark",
   "tags": [],
   "templating": {
@@ -1016,11 +1016,13 @@
         "allValue": null,
         "current": {
           "selected": false,
-          "text": "10.90.148.205",
-          "value": "10.90.148.205"
+          "text": "rr-lwr-cbr8",
+          "value": "rr-lwr-cbr8"
         },
         "datasource": "InfluxDB-MDT",
         "definition": "SHOW TAG VALUES FROM \"Cisco-IOS-XE-docsis-oper:docsis-oper-data/cable-modem\" WITH KEY=\"source\"",
+        "description": null,
+        "error": null,
         "hide": 0,
         "includeAll": false,
         "label": "cBR8",
@@ -1028,7 +1030,7 @@
         "name": "node",
         "options": [
           {
-            "selected": true,
+            "selected": false,
             "text": "10.90.148.205",
             "value": "10.90.148.205"
           }
@@ -1053,6 +1055,8 @@
         },
         "datasource": "InfluxDB-MDT",
         "definition": "show tag values from \"Cisco-IOS-XE-docsis-oper:docsis-oper-data/cm-summary-total\" with key=\"cm_if_summary_totals/interface\"",
+        "description": null,
+        "error": null,
         "hide": 0,
         "includeAll": false,
         "label": "Cable Interface",
@@ -1153,5 +1157,5 @@
   "timezone": "",
   "title": "Service Group Detail",
   "uid": "3rjav94rv",
-  "version": 7
+  "version": 1
 }
