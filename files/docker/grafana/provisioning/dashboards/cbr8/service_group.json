@@ -15,8 +15,8 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 0,
-  "id": 6,
-  "iteration": 1614864101079,
+  "id": 5,
+  "iteration": 1621283086818,
   "links": [],
   "panels": [
     {
@@ -37,7 +37,6 @@
       "datasource": "InfluxDB-MDT",
       "fieldConfig": {
         "defaults": {
-          "custom": {},
           "mappings": [],
           "thresholds": {
             "mode": "absolute",
@@ -73,7 +72,7 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "7.4.3",
+      "pluginVersion": "7.5.6",
       "targets": [
         {
           "groupBy": [],
@@ -120,7 +119,6 @@
       "datasource": "InfluxDB-MDT",
       "fieldConfig": {
         "defaults": {
-          "custom": {},
           "mappings": [],
           "thresholds": {
             "mode": "absolute",
@@ -156,7 +154,7 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "7.4.3",
+      "pluginVersion": "7.5.6",
       "targets": [
         {
           "groupBy": [],
@@ -203,7 +201,6 @@
       "datasource": "InfluxDB-MDT",
       "fieldConfig": {
         "defaults": {
-          "custom": {},
           "mappings": [],
           "thresholds": {
             "mode": "absolute",
@@ -239,7 +236,7 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "7.4.3",
+      "pluginVersion": "7.5.6",
       "targets": [
         {
           "groupBy": [],
@@ -286,7 +283,6 @@
       "datasource": "InfluxDB-MDT",
       "fieldConfig": {
         "defaults": {
-          "custom": {},
           "mappings": [],
           "thresholds": {
             "mode": "absolute",
@@ -322,7 +318,7 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "7.4.3",
+      "pluginVersion": "7.5.6",
       "targets": [
         {
           "groupBy": [],
@@ -369,7 +365,6 @@
       "datasource": "InfluxDB-MDT",
       "fieldConfig": {
         "defaults": {
-          "custom": {},
           "mappings": [],
           "thresholds": {
             "mode": "absolute",
@@ -405,7 +400,7 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "7.4.3",
+      "pluginVersion": "7.5.6",
       "targets": [
         {
           "groupBy": [],
@@ -452,7 +447,6 @@
       "datasource": "InfluxDB-MDT",
       "fieldConfig": {
         "defaults": {
-          "custom": {},
           "mappings": [],
           "thresholds": {
             "mode": "absolute",
@@ -488,7 +482,7 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "7.4.3",
+      "pluginVersion": "7.5.6",
       "targets": [
         {
           "groupBy": [],
@@ -537,7 +531,6 @@
       "datasource": "InfluxDB-MDT",
       "fieldConfig": {
         "defaults": {
-          "custom": {},
           "mappings": [],
           "thresholds": {
             "mode": "absolute",
@@ -577,7 +570,7 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "7.4.3",
+      "pluginVersion": "7.5.6",
       "targets": [
         {
           "groupBy": [],
@@ -635,13 +628,7 @@
       "dashes": false,
       "datasource": "InfluxDB-MDT",
       "fieldConfig": {
-        "defaults": {
-          "custom": {},
-          "thresholds": {
-            "mode": "absolute",
-            "steps": []
-          }
-        },
+        "defaults": {},
         "overrides": []
       },
       "fill": 1,
@@ -671,7 +658,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "7.4.3",
+      "pluginVersion": "7.5.6",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -1016,8 +1003,8 @@
         "allValue": null,
         "current": {
           "selected": false,
-          "text": "rr-lwr-cbr8",
-          "value": "rr-lwr-cbr8"
+          "text": "rr-lwr-scte-cbr",
+          "value": "rr-lwr-scte-cbr"
         },
         "datasource": "InfluxDB-MDT",
         "definition": "SHOW TAG VALUES FROM \"Cisco-IOS-XE-docsis-oper:docsis-oper-data/cable-modem\" WITH KEY=\"source\"",
@@ -1050,8 +1037,8 @@
         "allValue": null,
         "current": {
           "selected": false,
-          "text": "C1/0/2",
-          "value": "C1/0/2"
+          "text": "C2/0/0",
+          "value": "C2/0/0"
         },
         "datasource": "InfluxDB-MDT",
         "definition": "show tag values from \"Cisco-IOS-XE-docsis-oper:docsis-oper-data/cm-summary-total\" with key=\"cm_if_summary_totals/interface\"",
@@ -1064,7 +1051,7 @@
         "name": "sg",
         "options": [
           {
-            "selected": true,
+            "selected": false,
             "text": "C1/0/2",
             "value": "C1/0/2"
           },

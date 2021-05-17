@@ -10,6 +10,7 @@ Vagrant.configure("2") do |config|
    docker.vm.hostname = "docker0.test"
    docker.vm.network :private_network, ip: "172.28.128.10"
    docker.vm.network "forwarded_port", guest: 57000, host: 57000
+   docker.vm.network "forwarded_port", guest: 3000, host: 3000
   end
 
 end

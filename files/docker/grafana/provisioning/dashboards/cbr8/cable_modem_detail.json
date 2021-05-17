@@ -15,8 +15,8 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 0,
-  "id": 2,
-  "iteration": 1614864136589,
+  "id": 6,
+  "iteration": 1621283039674,
   "links": [],
   "panels": [
     {
@@ -87,7 +87,7 @@
         "showHeader": true,
         "sortBy": []
       },
-      "pluginVersion": "7.4.3",
+      "pluginVersion": "7.5.6",
       "targets": [
         {
           "groupBy": [],
@@ -320,7 +320,7 @@
           }
         ]
       },
-      "pluginVersion": "7.4.3",
+      "pluginVersion": "7.5.6",
       "targets": [
         {
           "groupBy": [],
@@ -376,13 +376,7 @@
       "dashes": false,
       "datasource": "InfluxDB-MDT",
       "fieldConfig": {
-        "defaults": {
-          "custom": {},
-          "thresholds": {
-            "mode": "absolute",
-            "steps": []
-          }
-        },
+        "defaults": {},
         "overrides": []
       },
       "fill": 1,
@@ -411,7 +405,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "7.4.3",
+      "pluginVersion": "7.5.6",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -544,9 +538,9 @@
       {
         "allValue": null,
         "current": {
-          "selected": true,
-          "text": "rr-lwr-cbr8",
-          "value": "rr-lwr-cbr8"
+          "selected": false,
+          "text": "rr-lwr-scte-cbr",
+          "value": "rr-lwr-scte-cbr"
         },
         "datasource": "InfluxDB-MDT",
         "definition": "SHOW TAG VALUES FROM \"Cisco-IOS-XE-docsis-oper:docsis-oper-data/cable-modem\" WITH KEY=\"source\"",
@@ -559,7 +553,7 @@
         "name": "node",
         "options": [
           {
-            "selected": true,
+            "selected": false,
             "text": "rr-lwr-cbr8",
             "value": "rr-lwr-cbr8"
           }
@@ -578,9 +572,9 @@
       {
         "allValue": null,
         "current": {
-          "selected": true,
-          "text": "00:18:68:97:cb:24",
-          "value": "00:18:68:97:cb:24"
+          "selected": false,
+          "text": "38:c8:5c:09:42:06",
+          "value": "38:c8:5c:09:42:06"
         },
         "datasource": "InfluxDB-MDT",
         "definition": "SHOW TAG VALUES FROM \"Cisco-IOS-XE-docsis-oper:docsis-oper-data/cable-modem\"  WITH KEY = \"mac_address\"",
@@ -628,7 +622,7 @@
             "value": "00:18:68:97:ca:dc"
           },
           {
-            "selected": true,
+            "selected": false,
             "text": "00:18:68:97:cb:24",
             "value": "00:18:68:97:cb:24"
           },
@@ -946,5 +940,5 @@
   "timezone": "",
   "title": "Cable Modem Detail",
   "uid": "Bns54C4Gz",
-  "version": 4
+  "version": 1
 }

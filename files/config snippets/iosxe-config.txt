@@ -15,35 +15,35 @@ telemetry ietf subscription 101
  source-vrf Mgmt-intf
  stream yang-push
  update-policy periodic 18000
- receiver ip address 10.116.230.53 57000 protocol grpc-tcp
+ receiver ip address 10.82.249.96 57000 protocol grpc-tcp
 telemetry ietf subscription 102
  encoding encode-kvgpb
  filter xpath /interfaces-ios-xe-oper:interfaces/interface/statistics
  source-vrf Mgmt-intf
  stream yang-push
  update-policy periodic 3000
- receiver ip address 10.116.230.53 57000 protocol grpc-tcp
+ receiver ip address 10.82.249.96 57000 protocol grpc-tcp
 telemetry ietf subscription 103
  encoding encode-kvgpb
  filter xpath /memory-ios-xe-oper:memory-statistics
  source-vrf Mgmt-intf
  stream yang-push
  update-policy periodic 180000
- receiver ip address 10.116.230.53 57000 protocol grpc-tcp
+ receiver ip address 10.82.249.96 57000 protocol grpc-tcp
 telemetry ietf subscription 104
  encoding encode-kvgpb
  filter xpath /xcvr-ios-xe-oper:transceiver-oper-data/transceiver
  source-vrf Mgmt-intf
  stream yang-push
  update-policy periodic 12000
- receiver ip address 10.116.230.53 57000 protocol grpc-tcp
+ receiver ip address 10.82.249.96 57000 protocol grpc-tcp
 telemetry ietf subscription 105
  encoding encode-kvgpb
  filter xpath /ospf-ios-xe-oper:ospf-oper-data/ospf-state
  source-vrf Mgmt-intf
  stream yang-push
  update-policy periodic 18000
- receiver ip address 10.116.230.53 57000 protocol grpc-tcp
+ receiver ip address 10.82.249.96 57000 protocol grpc-tcp
 
 telemetry ietf subscription 200
  encoding encode-kvgpb
@@ -51,21 +51,21 @@ telemetry ietf subscription 200
  source-vrf Mgmt-intf
  stream yang-push
  update-policy periodic 6000
- receiver ip address 10.116.230.53 57000 protocol grpc-tcp
+ receiver ip address 10.82.249.96 57000 protocol grpc-tcp
 telemetry ietf subscription 201
  encoding encode-kvgpb
  filter xpath /docsis-ios-xe-oper:docsis-oper-data/cm-summary-total
  source-vrf Mgmt-intf
  stream yang-push
  update-policy periodic 6000
- receiver ip address 10.116.230.53 57000 protocol grpc-tcp
+ receiver ip address 10.82.249.96 57000 protocol grpc-tcp
 telemetry ietf subscription 202
  encoding encode-kvgpb
  filter xpath /docsis-ios-xe-oper:docsis-oper-data/cable-rpd-state
  source-vrf Mgmt-intf
  stream yang-push
  update-policy periodic 6000
- receiver ip address 10.116.230.53 57000 protocol grpc-tcp
+ receiver ip address 10.82.249.96 57000 protocol grpc-tcp
 
 
 
@@ -84,5 +84,5 @@ no telemetry ietf subscription 202
  
  show platform software yang-management process 
  
- show telemetry ietf subscription 100 receiver
+ 
  show telemetry ietf subscription configured detail

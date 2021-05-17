@@ -15,7 +15,7 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 0,
-  "id": 4,
+  "id": 3,
   "links": [],
   "panels": [
     {
@@ -36,7 +36,6 @@
       "datasource": "InfluxDB-MDT",
       "fieldConfig": {
         "defaults": {
-          "custom": {},
           "mappings": [],
           "thresholds": {
             "mode": "absolute",
@@ -72,7 +71,7 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "7.4.3",
+      "pluginVersion": "7.5.6",
       "targets": [
         {
           "groupBy": [],
@@ -107,7 +106,6 @@
       "datasource": "InfluxDB-MDT",
       "fieldConfig": {
         "defaults": {
-          "custom": {},
           "mappings": [],
           "thresholds": {
             "mode": "absolute",
@@ -143,7 +141,7 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "7.4.3",
+      "pluginVersion": "7.5.6",
       "targets": [
         {
           "groupBy": [],
@@ -178,7 +176,6 @@
       "datasource": "InfluxDB-MDT",
       "fieldConfig": {
         "defaults": {
-          "custom": {},
           "mappings": [],
           "thresholds": {
             "mode": "absolute",
@@ -214,7 +211,7 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "7.4.3",
+      "pluginVersion": "7.5.6",
       "targets": [
         {
           "groupBy": [],
@@ -249,7 +246,6 @@
       "datasource": "InfluxDB-MDT",
       "fieldConfig": {
         "defaults": {
-          "custom": {},
           "mappings": [],
           "thresholds": {
             "mode": "absolute",
@@ -285,7 +281,7 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "7.4.3",
+      "pluginVersion": "7.5.6",
       "targets": [
         {
           "groupBy": [],
@@ -320,7 +316,6 @@
       "datasource": "InfluxDB-MDT",
       "fieldConfig": {
         "defaults": {
-          "custom": {},
           "mappings": [],
           "thresholds": {
             "mode": "absolute",
@@ -356,7 +351,7 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "7.4.3",
+      "pluginVersion": "7.5.6",
       "targets": [
         {
           "groupBy": [],
@@ -391,7 +386,6 @@
       "datasource": "InfluxDB-MDT",
       "fieldConfig": {
         "defaults": {
-          "custom": {},
           "mappings": [],
           "thresholds": {
             "mode": "absolute",
@@ -427,7 +421,7 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "7.4.3",
+      "pluginVersion": "7.5.6",
       "targets": [
         {
           "groupBy": [],
@@ -462,7 +456,6 @@
       "datasource": "InfluxDB-MDT",
       "fieldConfig": {
         "defaults": {
-          "custom": {},
           "mappings": [],
           "thresholds": {
             "mode": "absolute",
@@ -498,7 +491,7 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "7.4.3",
+      "pluginVersion": "7.5.6",
       "targets": [
         {
           "groupBy": [],
@@ -533,7 +526,6 @@
       "datasource": "InfluxDB-MDT",
       "fieldConfig": {
         "defaults": {
-          "custom": {},
           "mappings": [],
           "noValue": "0",
           "thresholds": {
@@ -591,7 +583,7 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "7.4.3",
+      "pluginVersion": "7.5.6",
       "targets": [
         {
           "groupBy": [],
@@ -636,13 +628,7 @@
       "dashes": false,
       "datasource": "InfluxDB-MDT",
       "fieldConfig": {
-        "defaults": {
-          "custom": {},
-          "thresholds": {
-            "mode": "absolute",
-            "steps": []
-          }
-        },
+        "defaults": {},
         "overrides": []
       },
       "fill": 1,
@@ -672,7 +658,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "7.4.3",
+      "pluginVersion": "7.5.6",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -952,7 +938,7 @@
                 "value": [
                   {
                     "title": "cBR8 Details",
-                    "url": "http://172.28.128.10:3000/d/uv86hqnGk/cbr8-detail?orgId=1&refresh=10s&var-node=rr-lwr-cbr8"
+                    "url": "http://127.0.0.1:3000/d/uv86hqnGk/cbr8-detail?orgId=1&refresh=10s&var-node=rr-lwr-scte-cbr8"
                   }
                 ]
               },
@@ -980,7 +966,7 @@
           }
         ]
       },
-      "pluginVersion": "7.4.3",
+      "pluginVersion": "7.5.6",
       "targets": [
         {
           "alias": "[[tag_source]]",
@@ -1140,5 +1126,5 @@
   "timezone": "",
   "title": "cBR8 Overview",
   "uid": "xm7gmj4Gk",
-  "version": 5
+  "version": 2
 }
