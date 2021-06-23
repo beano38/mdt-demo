@@ -1,4 +1,5 @@
 snmp.txt
+playbooks/roles/geerlingguy.docker
 
 #ansible
 *.retry
