@@ -15,7 +15,7 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 0,
-  "id": 3,
+  "id": 4,
   "links": [],
   "panels": [
     {
@@ -71,7 +71,7 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "7.5.6",
+      "pluginVersion": "8.0.3",
       "targets": [
         {
           "groupBy": [],
@@ -141,7 +141,7 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "7.5.6",
+      "pluginVersion": "8.0.3",
       "targets": [
         {
           "groupBy": [],
@@ -211,7 +211,7 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "7.5.6",
+      "pluginVersion": "8.0.3",
       "targets": [
         {
           "groupBy": [],
@@ -281,7 +281,7 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "7.5.6",
+      "pluginVersion": "8.0.3",
       "targets": [
         {
           "groupBy": [],
@@ -351,7 +351,7 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "7.5.6",
+      "pluginVersion": "8.0.3",
       "targets": [
         {
           "groupBy": [],
@@ -421,7 +421,7 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "7.5.6",
+      "pluginVersion": "8.0.3",
       "targets": [
         {
           "groupBy": [],
@@ -491,7 +491,7 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "7.5.6",
+      "pluginVersion": "8.0.3",
       "targets": [
         {
           "groupBy": [],
@@ -583,7 +583,7 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "7.5.6",
+      "pluginVersion": "8.0.3",
       "targets": [
         {
           "groupBy": [],
@@ -627,10 +627,6 @@
       "dashLength": 10,
       "dashes": false,
       "datasource": "InfluxDB-MDT",
-      "fieldConfig": {
-        "defaults": {},
-        "overrides": []
-      },
       "fill": 1,
       "fillGradient": 0,
       "gridPos": {
@@ -658,7 +654,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "7.5.6",
+      "pluginVersion": "8.0.3",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -908,6 +904,7 @@
         "defaults": {
           "custom": {
             "align": "center",
+            "displayMode": "auto",
             "filterable": false
           },
           "links": [],
@@ -938,7 +935,7 @@
                 "value": [
                   {
                     "title": "cBR8 Details",
-                    "url": "http://127.0.0.1:3000/d/uv86hqnGk/cbr8-detail?orgId=1&refresh=10s&var-node=rr-lwr-scte-cbr8"
+                    "url": "http://127.0.0.1:3000/d/uv86hqnGk/cbr8-detail?orgId=1&refresh=10s&var-node=rr-lwr-scte-cbr"
                   }
                 ]
               },
@@ -966,7 +963,7 @@
           }
         ]
       },
-      "pluginVersion": "7.5.6",
+      "pluginVersion": "8.0.3",
       "targets": [
         {
           "alias": "[[tag_source]]",
@@ -1100,7 +1097,7 @@
     }
   ],
   "refresh": "10s",
-  "schemaVersion": 27,
+  "schemaVersion": 30,
   "style": "dark",
   "tags": [],
   "templating": {

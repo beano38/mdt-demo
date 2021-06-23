@@ -1,5 +1,5 @@
 ---
-- hosts: docker
+- hosts: docker0
   vars:
     - docker_users:
       - "{{ ansible_env.USER }}"
