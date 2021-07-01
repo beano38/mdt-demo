@@ -5,7 +5,7 @@ Make sure to modify the address family IP address and port. This will work thru 
 
 telemetry model-driven
  destination-group MDT
-  address-family ipv4 10.254.0.88 port 5432
+  address-family ipv4 {{ telemetry_configs.telegraf_receiver_hostname }} port {{ telemetry_configs.telegraf_receiver_port }}
    encoding self-describing-gpb
    protocol tcp
   !

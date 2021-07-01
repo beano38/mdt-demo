@@ -1,1 +1,9 @@
-vars.yml
+---
+grafana_dashboards:
+  server_hostname: 127.0.0.1
+  snmp_hostname: 127.0.0.1
+  snmp_web_server_port: 9998
+telemetry_configs:
+  telegraf_receiver_hostname: 172.28.10.2
+  telegraf_receiver_port: 57000
+  
