@@ -18,3 +18,14 @@
       template:
           src: ../files/config snippets/iosxr-config.j2
           dest: ../xr-config.txt
+
+    - name: Render cBR8 Dashboards
+      template:
+          src: '{{ item.src }}'
+          dest: '{{ item.dest }}'
+      with_items:
+          - { src: '../files/templates/cbr8_overview.j2', dest: '../files/docker/grafana/provisioning/dashboards/cbr8/cbr8_overview.json' }
+          - { src: '../files/templates/cbr8_detail.j2', dest: '../files/docker/grafana/provisioning/dashboards/cbr8/cbr8_detail.json' }
+          - { src: '../files/templates/service_group.j2', dest: '../files/docker/grafana/provisioning/dashboards/cbr8/service_group.json' }
+          - { src: '../files/templates/cable_modem_detail.j2', dest: '../files/docker/grafana/provisioning/dashboards/cbr8/cable_modem_detail.json' }
+          - { src: '../files/templates/partial_mode_detail.j2', dest: '../files/docker/grafana/provisioning/dashboards/cbr8/partial_mode_detail.json' }

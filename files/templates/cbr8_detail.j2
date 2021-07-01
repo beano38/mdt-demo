@@ -1658,7 +1658,7 @@
                 "value": [
                   {
                     "title": "Partial Mode Detail",
-                    "url": "http://127.0.0.1:3000/d/cCQFDjVGz/partial-mode-detail?orgId=1"
+                    "url": "http://{{ grafana_dashboards.server_hostname }}:3000/d/cCQFDjVGz/partial-mode-detail?orgId=1"
                   }
                 ]
               }
@@ -2078,7 +2078,7 @@
                   {
                     "targetBlank": false,
                     "title": "Interface Detail",
-                    "url": "http://127.0.0.1:3000/d/3rjav94rv/service-group-detail?orgId=1&refresh=10s&var-node=${node}&var-sg=${__data.fields[cm_if_summary_totals/interface]}"
+                    "url": "http://{{ grafana_dashboards.server_hostname }}:3000/d/3rjav94rv/service-group-detail?orgId=1&refresh=10s&var-node=${node}&var-sg=${__data.fields[cm_if_summary_totals/interface]}"
                   }
                 ]
               }
@@ -2779,7 +2779,7 @@
                 "value": [
                   {
                     "title": "Cable Modem Detail",
-                    "url": "http://127.0.0.1:3000/d/Bns54C4Gz/cable-modem-detail-copy?orgId=1&var-node=${node}&var-sg_id=C1%2F0%2F2&var-mac=${__data.fields[mac_address]}&from=now-30m&to=now"
+                    "url": "http://{{ grafana_dashboards.server_hostname }}:3000/d/Bns54C4Gz/cable-modem-detail-copy?orgId=1&var-node=${node}&var-sg_id=C1%2F0%2F2&var-mac=${__data.fields[mac_address]}&from=now-30m&to=now"
                   }
                 ]
               },

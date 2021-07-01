@@ -24,7 +24,7 @@
       "targetBlank": true,
       "title": "Start Polling cBR8",
       "type": "link",
-      "url": "http://172.28.128.10:9998/api/cmts/$node"
+      "url": "http://{{ grafana_dashboards.snmp_hostname }}:{{ grafana_dashboards.snmp_web_server_port }}/api/cmts/$node"
     }
   ],
   "panels": [
@@ -65,7 +65,7 @@
                 "value": [
                   {
                     "title": "Cable Modem Detail",
-                    "url": "http://127.0.0.1:3000/d/Bns54C4Gz/cable-modem-detail?orgId=1&var-node=${node}&var-mac=${__data.fields[mac_address]}"
+                    "url": "http://{{ grafana_dashboards.server_hostname }}:3000/d/Bns54C4Gz/cable-modem-detail?orgId=1&var-node=${node}&var-mac=${__data.fields[mac_address]}"
                   }
                 ]
               },

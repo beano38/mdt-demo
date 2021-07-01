@@ -6,4 +6,3 @@ grafana_dashboards:
 telemetry_configs:
   telegraf_receiver_hostname: 172.28.10.2
   telegraf_receiver_port: 57000
-  
