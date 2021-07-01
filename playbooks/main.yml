@@ -3,6 +3,9 @@
   vars:
     - docker_users:
       - "{{ ansible_env.USER }}"
+  vars_files:
+    - vars.yml
+
 
   pre_tasks:
     - name: Set permenant environment variables
@@ -43,5 +46,31 @@
         src: ../files/docker
         dest: "{{ ansible_env.HOME }}"
 
+    - name: Render IOSXE Config
+      template:
+          src: ../files/config snippets/iosxe-config.j2
+          dest: ~/xe-config.txt
+      tags:
+        - render
+
+    - name: Render IOSXR Config
+      template:
+          src: ../files/config snippets/iosxr-config.j2
+          dest: ~/xr-config.txt
+      tags:
+        - render
+
+    - name: Render cBR8 Dashboards
+      template:
+          src: '{{ item.src }}'
+          dest: '{{ item.dest }}'
+      with_items:
+          - { src: '../files/templates/grafana/dashboards/cbr8/cbr8_overview.j2', dest: '~/docker/grafana/provisioning/dashboards/cbr8/cbr8_overview.json' }
+          - { src: '../files/templates/grafana/dashboards/cbr8/cbr8_detail.j2', dest: '~/docker/grafana/provisioning/dashboards/cbr8/cbr8_detail.json' }
+          - { src: '../files/templates/grafana/dashboards/cbr8/service_group.j2', dest: '~/docker/grafana/provisioning/dashboards/cbr8/service_group.json' }
+          - { src: '../files/templates/grafana/dashboards/cbr8/cable_modem_detail.j2', dest: '~/docker/grafana/provisioning/dashboards/cbr8/cable_modem_detail.json' }
+          - { src: '../files/templates/grafana/dashboards/cbr8/partial_mode_detail.j2', dest: '~/docker/grafana/provisioning/dashboards/cbr8/partial_mode_detail.json' }
+      tags:
+        - render
     # - debug:
         # msg: Log out of server and back in again then run 'docker-compose -f {{ ansible_env.HOME/docker/docker-compose.yml }} up -d'
