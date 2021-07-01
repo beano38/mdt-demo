@@ -14,3 +14,7 @@
           src: ../files/config snippets/iosxe-config.j2
           dest: ../xe-config.txt
 
+    - name: Render IOSXR Config
+      template:
+          src: ../files/config snippets/iosxr-config.j2
+          dest: ../xr-config.txt

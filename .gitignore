@@ -1,6 +1,6 @@
 snmp.txt
 playbooks/roles/geerlingguy.docker
-*.config.txt
+*config.txt
 
 #ansible
 *.retry
