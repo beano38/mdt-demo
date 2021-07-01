@@ -3,7 +3,6 @@ playbooks/roles/geerlingguy.docker
 
 # Ignore Jinja created files
 *config.txt
-./files/docker/grafana/provisioning/dashboards/cbr8/*.*
 
 #ansible
 *.retry
