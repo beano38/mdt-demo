@@ -72,5 +72,9 @@
           - { src: '../files/templates/grafana/dashboards/cbr8/partial_mode_detail.j2', dest: '~/docker/grafana/provisioning/dashboards/cbr8/partial_mode_detail.json' }
       tags:
         - render
-    # - debug:
-        # msg: Log out of server and back in again then run 'docker-compose -f {{ ansible_env.HOME/docker/docker-compose.yml }} up -d'
+   
+    # - name: Bring up Containers with docker-compose
+    #   community.docker.docker_compose:
+    #     project_src: '~/docker'
+    #   tags:
+    #     - compose

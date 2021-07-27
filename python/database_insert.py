@@ -39,6 +39,24 @@ def create_measurement(db_name, measurement):
 if config["influxdb"]["create_db"] == "True":
     create_db(config["influxdb"]["snmp_db"])
 
+json_body = [
+        {
+            "measurement": "cpu_load_short",
+            "tags": {
+                "host": "server01",
+                "region": "us-west"
+            },
+            "time": "2009-11-10T23:01:00Z",
+            "fields": {
+                "Float_value": 0.64,
+                "Int_value": 5,
+                "String_value": "Text",
+                "Bool_value": True
+            }
+        }
+    ]
+
 if __name__ == "__main__":
     db_name = "snmp"
-    create_db(db_name)
+    # create_db(db_name)
+    create_measurement(db_name, measurement=json_body)

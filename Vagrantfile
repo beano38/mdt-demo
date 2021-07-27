@@ -16,11 +16,14 @@ Vagrant.configure("2") do |config|
     ansible.playbook = "playbooks/main.yml"
     ansible.inventory_path = "inventory"
     ansible.galaxy_role_file = "requirements.yml"
-    # ansible.tags = "render"
+
+    # debug - run the tasks matching the tag below
+    # ansible.tags = "compose"
+    
     ansible.extra_vars = { 
       ansible_python_interpreter:"/usr/bin/python3"
       }
-  end
+    end
 
   end
 
