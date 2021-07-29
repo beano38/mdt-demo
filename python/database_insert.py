@@ -1,5 +1,8 @@
 import os
 import sys
+import datetime
+import random
+import time
 
 # PyPI Libraries
 from influxdb import InfluxDBClient
@@ -39,24 +42,42 @@ def create_measurement(db_name, measurement):
 if config["influxdb"]["create_db"] == "True":
     create_db(config["influxdb"]["snmp_db"])
 
-json_body = [
-        {
-            "measurement": "cpu_load_short",
-            "tags": {
-                "host": "server01",
-                "region": "us-west"
-            },
-            "time": "2009-11-10T23:01:00Z",
-            "fields": {
-                "Float_value": 0.64,
-                "Int_value": 5,
-                "String_value": "Text",
-                "Bool_value": True
-            }
-        }
-    ]
-
 if __name__ == "__main__":
     db_name = "snmp"
-    # create_db(db_name)
-    create_measurement(db_name, measurement=json_body)
+    create_db(db_name)
+    cpuvalue = 0.20
+
+    for i in range(1000):
+        today = datetime.datetime.now()
+        date_time = today.strftime("%Y-%m-%dT%H:%M:%SZ")
+
+        if random.randint(1, 10) < 7:
+            cpuvalue = round((cpuvalue + random.uniform(0.00, 0.10)), 2)
+        else:
+            cpuvalue = round((cpuvalue - random.uniform(0.00, 0.10)), 2)
+        if cpuvalue < 0:
+            cpuvalue = 0.00
+        if cpuvalue > 0.999:
+            cpuvalue = 1.00
+
+        json_body = [
+            {
+                "measurement": "cpu_load_short",
+                "tags": {
+                    "host": "server01",
+                    "region": "us-west"
+                },
+                "time": date_time,
+                "fields": {
+                    "Float_value": cpuvalue,
+                    "Int_value": i,
+                    "String_value": "Text",
+                    "Bool_value": True
+                }
+            }
+        ]
+        time.sleep(5)
+
+        print(json_body)
+        create_measurement(db_name, measurement=json_body)
+
